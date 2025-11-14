@@ -1,22 +1,22 @@
-                * {
+        * {
             padding: 0%;
             margin: 0%;
             box-sizing: border-box
         }
         
         :root {
-            --bg: #000000;
-            --card: #010101;
+            --bg: #fbfbfb;
+            --card: #ffffff;
             --muted: #6b7280;
             --accent: #6ee7b7;
             --accent-2: #60a5fa;
             --danger: #f87171;
             --glass: rgba(255, 255, 255, 0.6);
-            --maxwidth: 363px
+            --maxwidth: 1100px
         }
 
         [data-theme='dark'] {
-            --bg: #000000;
+            --bg: #0b1220;
             --card: #071022;
             --muted: #94a3b8;
             --accent: #34d399;

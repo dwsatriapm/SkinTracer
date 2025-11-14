@@ -184,108 +184,108 @@
                 </div>
 
 
-            
-            <div class="container">
-                <div class="card" style="margin-top:16px">
-                    <div class="section-title">
-                        <h2>Summary & Controls</h2>
+
+                <div class="container">
+                    <div class="card" style="margin-top:16px">
+                        <div class="section-title">
+                            <h2>Summary & Controls</h2>
+                        </div>
+                        <div class="summary">
+                            <div class="stat">
+                                <div class="small">Hari total</div>
+                                <div class="num" id="totalDays">28</div>
+                            </div>
+                            <div class="stat">
+                                <div class="small">Hari aman</div>
+                                <div class="num" id="safeDays">0</div>
+                            </div>
+                            <div class="stat">
+                                <div class="small">Hari reaksi</div>
+                                <div class="num" id="reactDays">0</div>
+                            </div>
+                            <div class="stat">
+                                <div class="small">Produk aktif</div>
+                                <div class="num" id="activeProd">Facewash</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px" class="tracker-toolbar">
+                            <button class="btn" id="exportCSV">Export CSV</button>
+                            <button class="btn secondary" id="exportJSON">Export JSON</button>
+                            <button class="btn secondary" id="importJSON">Import JSON</button>
+                            <button class="btn secondary" id="resetAll">Reset Data</button>
+                            <div style="flex:1"></div>
+                        </div>
                     </div>
-                    <div class="summary">
-                        <div class="stat">
-                            <div class="small">Hari total</div>
-                            <div class="num" id="totalDays">28</div>
-                        </div>
-                        <div class="stat">
-                            <div class="small">Hari aman</div>
-                            <div class="num" id="safeDays">0</div>
-                        </div>
-                        <div class="stat">
-                            <div class="small">Hari reaksi</div>
-                            <div class="num" id="reactDays">0</div>
-                        </div>
-                        <div class="stat">
-                            <div class="small">Produk aktif</div>
-                            <div class="num" id="activeProd">Facewash</div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top:12px" class="tracker-toolbar">
-                        <button class="btn" id="exportCSV">Export CSV</button>
-                        <button class="btn secondary" id="exportJSON">Export JSON</button>
-                        <button class="btn secondary" id="importJSON">Import JSON</button>
-                        <button class="btn secondary" id="resetAll">Reset Data</button>
-                        <div style="flex:1"></div>
-                    </div>
                 </div>
-            </div>
-            </div>
-
-        <div class="container">
-            <div class="card">
-                <div class="section-title">
-                    <h2>Skin Tracker (Harian)</h2>
-                </div>
-                <div class="small">Isi tiap hari. Foto tersimpan di browser. Gunakan filter / search untuk temukan
-                    hari tertentu.</div>
-
-                <div class="toolbar">
-                    <button class="btn secondary" id="addToday">Isi hari ini</button>
-                    <button class="btn" id="saveAll">Simpan</button>
-
-                </div>
-
-                <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
-                    <input id="searchBox" placeholder="Cari catatan atau area..."
-                        style="flex:1;padding:8px;border-radius:8px;border:1px solid #e5e7eb">
-                    <select id="filterSelect" class="select">
-                        <option value="all">Semua</option>
-                        <option value="aman">Aman</option>
-                        <option value="react">Ada reaksi</option>
-                    </select>
-                </div>
-
-                <div style="margin-top:12px; overflow:auto; max-height:600px">
-                    <table id="trackerTable">
-                        <thead>
-                            <tr>
-                                <th>Tanggal</th>
-                                <th>Hari</th>
-                                <th>Produk</th>
-                                <th>Pagi</th>
-                                <th>Malam</th>
-                                <th>Reaksi</th>
-                                <th>Area</th>
-                                <th>Foto</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-
-                <div style="margin-top:10px" class="small">Double-klik sel foto untuk upload. Tekan Ctrl/Cmd+S untuk
-                    menyimpan cepat.</div>
-                    </section>
-            </div>
-        </div>
     </div>
 
     <div class="container">
-    <div class="card" style="margin-top:12px">
-        <div class="section-title">
-            <h2>Pengingat & Reminder</h2>
+        <div class="card">
+            <div class="section-title">
+                <h2>Skin Tracker (Harian)</h2>
+            </div>
+            <div class="small">Isi tiap hari. Foto tersimpan di browser. Gunakan filter / search untuk temukan
+                hari tertentu.</div>
+
+            <div class="toolbar">
+                <button class="btn secondary" id="addToday">Isi hari ini</button>
+                <button class="btn" id="saveAll">Simpan</button>
+
+            </div>
+
+            <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+                <input id="searchBox" placeholder="Cari catatan atau area..."
+                    style="flex:1;padding:8px;border-radius:8px;border:1px solid #e5e7eb">
+                <select id="filterSelect" class="select">
+                    <option value="all">Semua</option>
+                    <option value="aman">Aman</option>
+                    <option value="react">Ada reaksi</option>
+                </select>
+            </div>
+
+            <div style="margin-top:12px; overflow:auto; max-height:600px">
+                <table id="trackerTable">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Hari</th>
+                            <th>Produk</th>
+                            <th>Pagi</th>
+                            <th>Malam</th>
+                            <th>Reaksi</th>
+                            <th>Area</th>
+                            <th>Foto</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div style="margin-top:10px" class="small">Double-klik sel foto untuk upload. Tekan Ctrl/Cmd+S untuk
+                menyimpan cepat.</div>
+            </section>
         </div>
-        <div class="small">Set pengingat harian (offline). Notifikasi menggunakan Notification API (minta
-            izin).</div>
-        <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
-            <input id="remTime" type="time" value="08:00" class="select">
-            <button class="btn secondary" id="setRem">Set Pagi</button>
-        </div>
-        <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
-            <input id="remTime2" type="time" value="21:00" class="select">
-            <button class="btn secondary" id="setRem2">Set Malam</button>
-        </div>
-        <div style="margin-top:8px"><button class="btn" id="clearRem">Hapus Semua Reminder</button></div>
     </div>
+    </div>
+
+    <div class="container">
+        <div class="card" style="margin-top:12px">
+            <div class="section-title">
+                <h2>Pengingat & Reminder</h2>
+            </div>
+            <div class="small">Set pengingat harian (offline). Notifikasi menggunakan Notification API (minta
+                izin).</div>
+            <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+                <input id="remTime" type="time" value="08:00" class="select">
+                <button class="btn secondary" id="setRem">Set Pagi</button>
+            </div>
+            <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+                <input id="remTime2" type="time" value="21:00" class="select">
+                <button class="btn secondary" id="setRem2">Set Malam</button>
+            </div>
+            <div style="margin-top:8px"><button class="btn" id="clearRem">Hapus Semua Reminder</button></div>
+        </div>
     </div>
 
 
