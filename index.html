@@ -15,21 +15,23 @@
     <div class="wrap" id="siteRoot">
         <header>
             <div>
-                <h1>Skin Tracker — Uji Coba Skincare</h1>
-                <div class="sub">Periode: <strong>14 Nov 2025 – 11 Des 2025</strong> · Metode: introduksi bertahap
-                    (7
-                    hari)</div>
-                <div class="controls">
-                    <div class="clock card" aria-hidden="false">
-                        <div class="time" id="time">--:--:--</div>
-                        <div class="date small" id="date">Loading date</div>
-                    </div>
-                    <div class="flex">
-                        <label class="small">Tema</label>
-                        <select id="themeSel" class="select">
-                            <option value="light">Light</option>
-                            <option value="dark">Dark</option>
-                        </select>
+                <div class="container">
+                    <h1>Skin Tracker — Uji Coba Skincare</h1>
+                    <div class="sub">Periode: <strong>14 Nov 2025 – 11 Des 2025</strong> · Metode: introduksi bertahap
+                        (7
+                        hari)</div>
+                    <div class="controls">
+                        <div class="clock card" aria-hidden="false">
+                            <div class="time" id="time">--:--:--</div>
+                            <div class="date small" id="date">Loading date</div>
+                        </div>
+                        <div class="flex">
+                            <label class="small">Tema</label>
+                            <select id="themeSel" class="select">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,17 +152,18 @@
                 </div>
 
                 <div class="container">
-                <div class="card" style="margin-top:12px">
-                    <div class="section-title">
-                        <h2>Analisis Tren & Rekomendasi (AI Lokal)</h2>
-                    </div>
-                    <div class="small">Ringkasan cepat berdasarkan input harian kamu. Ini berjalan offline dan hanya di
-                        perangkatmu.</div>
-                    <div style="margin-top:8px; display:flex; gap:10px; align-items:center">
-                        <div style="flex:1">
-                            <canvas id="trendChart"></canvas>
+                    <div class="card" style="margin-top:12px">
+                        <div class="section-title">
+                            <h2>Analisis Tren & Rekomendasi (AI Lokal)</h2>
                         </div>
-                        
+                        <div class="small">Ringkasan cepat berdasarkan input harian kamu. Ini berjalan offline dan hanya
+                            di
+                            perangkatmu.</div>
+                        <div style="margin-top:8px; display:flex; gap:10px; align-items:center">
+                            <div style="flex:1">
+                                <canvas id="trendChart"></canvas>
+                            </div>
+
                             <div class="small">Analisis singkat:</div>
                             <div id="aiSummary" style="margin-top:8px; font-weight:600">—</div>
                             <div class="small" style="margin-top:8px; color:var(--muted)">Saran otomatis akan muncul
@@ -168,124 +171,130 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="container">
+                    <div class="card" style="margin-top:12px">
+                        <div class="section-title">
+                            <h2>Before–After Timeline</h2>
+                        </div>
+                        <div class="small">Klik foto untuk perbesar. Foto tersimpan lokal di perangkatmu.</div>
+                        <div id="timeline" class="timeline" style="margin-top:10px"></div>
+                    </div>
                 </div>
 
-                <div class="card" style="margin-top:12px">
+
+            
+            <div class="container">
+                <div class="card" style="margin-top:16px">
                     <div class="section-title">
-                        <h2>Before–After Timeline</h2>
+                        <h2>Summary & Controls</h2>
                     </div>
-                    <div class="small">Klik foto untuk perbesar. Foto tersimpan lokal di perangkatmu.</div>
-                    <div id="timeline" class="timeline" style="margin-top:10px"></div>
-                </div>
+                    <div class="summary">
+                        <div class="stat">
+                            <div class="small">Hari total</div>
+                            <div class="num" id="totalDays">28</div>
+                        </div>
+                        <div class="stat">
+                            <div class="small">Hari aman</div>
+                            <div class="num" id="safeDays">0</div>
+                        </div>
+                        <div class="stat">
+                            <div class="small">Hari reaksi</div>
+                            <div class="num" id="reactDays">0</div>
+                        </div>
+                        <div class="stat">
+                            <div class="small">Produk aktif</div>
+                            <div class="num" id="activeProd">Facewash</div>
+                        </div>
+                    </div>
 
-            </section>
-            <div class="card" style="margin-top:16px">
+                    <div style="margin-top:12px" class="tracker-toolbar">
+                        <button class="btn" id="exportCSV">Export CSV</button>
+                        <button class="btn secondary" id="exportJSON">Export JSON</button>
+                        <button class="btn secondary" id="importJSON">Import JSON</button>
+                        <button class="btn secondary" id="resetAll">Reset Data</button>
+                        <div style="flex:1"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <div class="container">
+            <div class="card">
                 <div class="section-title">
-                    <h2>Summary & Controls</h2>
+                    <h2>Skin Tracker (Harian)</h2>
                 </div>
-                <div class="summary">
-                    <div class="stat">
-                        <div class="small">Hari total</div>
-                        <div class="num" id="totalDays">28</div>
-                    </div>
-                    <div class="stat">
-                        <div class="small">Hari aman</div>
-                        <div class="num" id="safeDays">0</div>
-                    </div>
-                    <div class="stat">
-                        <div class="small">Hari reaksi</div>
-                        <div class="num" id="reactDays">0</div>
-                    </div>
-                    <div class="stat">
-                        <div class="small">Produk aktif</div>
-                        <div class="num" id="activeProd">Facewash</div>
-                    </div>
+                <div class="small">Isi tiap hari. Foto tersimpan di browser. Gunakan filter / search untuk temukan
+                    hari tertentu.</div>
+
+                <div class="toolbar">
+                    <button class="btn secondary" id="addToday">Isi hari ini</button>
+                    <button class="btn" id="saveAll">Simpan</button>
+
                 </div>
 
-                <div style="margin-top:12px" class="tracker-toolbar">
-                    <button class="btn" id="exportCSV">Export CSV</button>
-                    <button class="btn secondary" id="exportJSON">Export JSON</button>
-                    <button class="btn secondary" id="importJSON">Import JSON</button>
-                    <button class="btn secondary" id="resetAll">Reset Data</button>
-                    <div style="flex:1"></div>
-                    <label class="small">Filter:</label>
+                <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+                    <input id="searchBox" placeholder="Cari catatan atau area..."
+                        style="flex:1;padding:8px;border-radius:8px;border:1px solid #e5e7eb">
                     <select id="filterSelect" class="select">
                         <option value="all">Semua</option>
-                        <option value="safe">Aman</option>
+                        <option value="aman">Aman</option>
                         <option value="react">Ada reaksi</option>
                     </select>
                 </div>
+
+                <div style="margin-top:12px; overflow:auto; max-height:600px">
+                    <table id="trackerTable">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Hari</th>
+                                <th>Produk</th>
+                                <th>Pagi</th>
+                                <th>Malam</th>
+                                <th>Reaksi</th>
+                                <th>Area</th>
+                                <th>Foto</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top:10px" class="small">Double-klik sel foto untuk upload. Tekan Ctrl/Cmd+S untuk
+                    menyimpan cepat.</div>
+                    </section>
             </div>
-            <aside>
-                <div class="card">
-                    <div class="section-title">
-                        <h2>Skin Tracker (Harian)</h2>
-                    </div>
-                    <div class="small">Isi tiap hari. Foto tersimpan di browser. Gunakan filter / search untuk temukan
-                        hari tertentu.</div>
+        </div>
+    </div>
 
-                    <div class="toolbar">
-                        <button class="btn secondary" id="addToday">Isi hari ini</button>
-                        <button class="btn" id="saveAll">Simpan</button>
+    <div class="container">
+    <div class="card" style="margin-top:12px">
+        <div class="section-title">
+            <h2>Pengingat & Reminder</h2>
+        </div>
+        <div class="small">Set pengingat harian (offline). Notifikasi menggunakan Notification API (minta
+            izin).</div>
+        <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+            <input id="remTime" type="time" value="08:00" class="select">
+            <button class="btn secondary" id="setRem">Set Pagi</button>
+        </div>
+        <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+            <input id="remTime2" type="time" value="21:00" class="select">
+            <button class="btn secondary" id="setRem2">Set Malam</button>
+        </div>
+        <div style="margin-top:8px"><button class="btn" id="clearRem">Hapus Semua Reminder</button></div>
+    </div>
+    </div>
 
-                    </div>
 
-                    <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
-                        <input id="searchBox" placeholder="Cari catatan atau area..."
-                            style="flex:1;padding:8px;border-radius:8px;border:1px solid #e5e7eb">
-                        <select id="filterSelect" class="select">
-                            <option value="all">Semua</option>
-                            <option value="aman">Aman</option>
-                            <option value="react">Ada reaksi</option>
-                        </select>
-                    </div>
+    </main>
 
-                    <div style="margin-top:12px; overflow:auto; max-height:600px">
-                        <table id="trackerTable">
-                            <thead>
-                                <tr>
-                                    <th>Tanggal</th>
-                                    <th>Hari</th>
-                                    <th>Produk</th>
-                                    <th>Pagi</th>
-                                    <th>Malam</th>
-                                    <th>Reaksi</th>
-                                    <th>Area</th>
-                                    <th>Foto</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-
-                    <div style="margin-top:10px" class="small">Double-klik sel foto untuk upload. Tekan Ctrl/Cmd+S untuk
-                        menyimpan cepat.</div>
-                </div>
-
-                <div class="card" style="margin-top:12px">
-                    <div class="section-title">
-                        <h2>Pengingat & Reminder</h2>
-                    </div>
-                    <div class="small">Set pengingat harian (offline). Notifikasi menggunakan Notification API (minta
-                        izin).</div>
-                    <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
-                        <input id="remTime" type="time" value="08:00" class="select">
-                        <button class="btn secondary" id="setRem">Set Pagi</button>
-                    </div>
-                    <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
-                        <input id="remTime2" type="time" value="21:00" class="select">
-                        <button class="btn secondary" id="setRem2">Set Malam</button>
-                    </div>
-                    <div style="margin-top:8px"><button class="btn" id="clearRem">Hapus Semua Reminder</button></div>
-                </div>
-
-            </aside>
-        </main>
-
-        <footer class="wrap">
-            <div class="small">Data tersimpan lokal di browser. Fitur AI ringkasan berjalan secara lokal — tidak dikirim
-                ke server.</div>
-        </footer>
+    <footer class="wrap">
+        <div class="small">Data tersimpan lokal di browser. Fitur AI ringkasan berjalan secara lokal — tidak dikirim
+            ke server.</div>
+    </footer>
 
     </div>
     <script src="script.js"></script>
