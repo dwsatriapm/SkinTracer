@@ -1,0 +1,294 @@
+<!doctype html>
+
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Skin Tracker — Uji Coba Skincare 14 Nov - 11 Des 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body data-theme="light">
+    <div class="wrap" id="siteRoot">
+        <header>
+            <div>
+                <h1>Skin Tracker — Uji Coba Skincare</h1>
+                <div class="sub">Periode: <strong>14 Nov 2025 – 11 Des 2025</strong> · Metode: introduksi bertahap
+                    (7
+                    hari)</div>
+                <div class="controls">
+                    <div class="clock card" aria-hidden="false">
+                        <div class="time" id="time">--:--:--</div>
+                        <div class="date small" id="date">Loading date</div>
+                    </div>
+                    <div class="flex">
+                        <label class="small">Tema</label>
+                        <select id="themeSel" class="select">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="grid">
+            <section>
+                <div class="container">
+                    <div class="card">
+                        <div class="section-title">
+                            <h2>JADWAL PEMAKAIAN SKINCARE BARU (JEDA 7 HARI)</h2>
+                        </div>
+                        <div class="small">Mulai: Jumat, 14 November 2025 — gunakan fitur tracker di samping untuk catat
+                            harian.</div>
+                        <hr style="margin:10px 0;border:none;border-top:1px solid #eee">
+
+                        <details open>
+                            <summary>Tahap 1 — Face Wash (14 – 20 Nov 2025)</summary>
+                            <div class="step">
+                                <div class="tag">Dipakai: pagi & malam</div>
+                                <p class="small" style="margin-top:8px"><strong>Tujuan:</strong> Mengetes apakah
+                                    pembersihnya lembut dan tidak mengiritasi kulit.</p>
+                                <p class="small"><strong>Perhatikan:</strong> Setelah cuci muka: kulit terasa ketarik,
+                                    perih, atau malah lembap dan nyaman? Muncul bruntusan, gatal, atau kering ekstrem =
+                                    stop
+                                    sementara. Kalau kulit terasa bersih tapi lembut = cocok.</p>
+                                <p class="small"><strong>Urutan:</strong> 🌞 Pagi → Face wash → selesai · 🌙 Malam →
+                                    Face
+                                    wash → selesai (belum pakai moisturizer, sunscreen, atau micellar water dulu)</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Tahap 2 — Tambahkan Moisturizer (21 – 27 Nov 2025)</summary>
+                            <div class="step">
+                                <div class="tag">Dipakai: pagi & malam setelah face wash</div>
+                                <p class="small"><strong>Tujuan:</strong> Menjaga skin barrier dan menilai apakah
+                                    pelembapnya cocok.</p>
+                                <p class="small"><strong>Perhatikan:</strong> Apakah kulit terasa adem dan lembap, atau
+                                    malah panas, gatal, dan muncul jerawat kecil? Kalau muncul jerawat 1–2 kecil di area
+                                    biasa jerawatan = adaptasi. Kalau muncul banyak jerawat baru, gatal, atau perih =
+                                    hentikan sementara.</p>
+                                <p class="small"><strong>Urutan:</strong> 🌞 Pagi → Face wash → Moisturizer · 🌙 Malam →
+                                    Face wash → Moisturizer</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Tahap 3 — Tambahkan Sunscreen (28 Nov – 4 Des 2025)</summary>
+                            <div class="step">
+                                <div class="tag">Dipakai: pagi/siang</div>
+                                <p class="small"><strong>Tujuan:</strong> Mulai perlindungan UV dan mengecek reaksi
+                                    terhadap
+                                    sunscreen.</p>
+                                <p class="small"><strong>Perhatikan:</strong> Apakah muncul jerawat kecil di dahi/pipi,
+                                    rasa
+                                    berat, atau pedih setelah pemakaian? Apakah wajah jadi minyakan berlebih dalam 2–3
+                                    jam?
+                                    Kalau terasa nyaman, tidak gatal, dan kulit tetap lembap → cocok.</p>
+                                <p class="small"><strong>Urutan:</strong> 🌞 Pagi → Face wash → Moisturizer → Sunscreen
+                                    · 🌙
+                                    Malam → Face wash → Moisturizer</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Tahap 4 — Tambahkan Micellar Water (5 – 11 Des 2025)</summary>
+                            <div class="step">
+                                <div class="tag">Dipakai: malam sebelum cuci muka</div>
+                                <p class="small"><strong>Tujuan:</strong> Melengkapi double cleansing dengan pembersih
+                                    lembut yang menenangkan kulit.</p>
+                                <p class="small"><strong>Perhatikan:</strong> Setelah dilap, apakah kulit terasa perih,
+                                    panas, atau kesat berlebihan? Kalau kulit terasa segar dan tenang → cocok banget.
+                                </p>
+                                <p class="small"><strong>Urutan:</strong> 🌞 Pagi → Face wash → Moisturizer → Sunscreen
+                                    · 🌙
+                                    Malam → Micellar Water → Face wash → Moisturizer</p>
+                            </div>
+                        </details>
+
+                        <div style="margin-top:12px" class="small">
+                            <strong>Setelah 11 Des 2025:</strong> Rutin pagi: Face wash, Moisturizer, Sunscreen. Rutin
+                            malam: Micellar Water, Face wash, Moisturizer.<br>
+                            Jarak waktu antar-produk: setelah cuci muka tunggu 30–60 detik; setelah moisturizer tunggu
+                            2–3
+                            menit sebelum sunscreen; moisturizer malam tunggu 10–15 menit.
+                        </div>
+
+                        <hr style="margin:14px 0;border:none;border-top:1px solid #f3f4f6">
+
+                        <div class="small">
+                            <strong>Panduan Mendeteksi Kecocokan Tiap Produk</strong>
+                            <ul>
+                                <li><strong>Micellar Water:</strong> Tidak cocok = panas/perih/kesat. Cocok = bersih &
+                                    lembap.</li>
+                                <li><strong>Face Wash:</strong> Tidak cocok = ketarik/perih/bruntusan. Cocok = lembut &
+                                    bersih.</li>
+                                <li><strong>Moisturizer:</strong> Tidak cocok = panas/gatal/banyak jerawat. Cocok =
+                                    lembap &
+                                    halus.</li>
+                                <li><strong>Sunscreen:</strong> Tidak cocok = pedih/breakout/greasy. Cocok = terlindungi
+                                    &
+                                    nyaman.</li>
+                            </ul>
+
+                            <div style="margin-top:8px"><strong>Catatan Penting:</strong>
+                                <ul>
+                                    <li>❌ Jangan tambah produk baru (serum/toner/exfoliant) sampai semua produk stabil
+                                        minimal 3 minggu.</li>
+                                    <li>🌤 Gunakan sunscreen tiap pagi, bahkan di dalam ruangan.</li>
+                                    <li>💧 Hindari sabun wajah lain selama pengujian.</li>
+                                    <li>📔 Simpan catatan harian & foto progress.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- schedule blocks injected by JS for clarity -->
+
+                    </div>
+                </div>
+
+                <div class="container">
+                <div class="card" style="margin-top:12px">
+                    <div class="section-title">
+                        <h2>Analisis Tren & Rekomendasi (AI Lokal)</h2>
+                    </div>
+                    <div class="small">Ringkasan cepat berdasarkan input harian kamu. Ini berjalan offline dan hanya di
+                        perangkatmu.</div>
+                    <div style="margin-top:8px; display:flex; gap:10px; align-items:center">
+                        <div style="flex:1">
+                            <canvas id="trendChart"></canvas>
+                        </div>
+                        
+                            <div class="small">Analisis singkat:</div>
+                            <div id="aiSummary" style="margin-top:8px; font-weight:600">—</div>
+                            <div class="small" style="margin-top:8px; color:var(--muted)">Saran otomatis akan muncul
+                                berdasarkan jumlah hari "breakout" atau "iritasi".</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="card" style="margin-top:12px">
+                    <div class="section-title">
+                        <h2>Before–After Timeline</h2>
+                    </div>
+                    <div class="small">Klik foto untuk perbesar. Foto tersimpan lokal di perangkatmu.</div>
+                    <div id="timeline" class="timeline" style="margin-top:10px"></div>
+                </div>
+
+            </section>
+            <div class="card" style="margin-top:16px">
+                <div class="section-title">
+                    <h2>Summary & Controls</h2>
+                </div>
+                <div class="summary">
+                    <div class="stat">
+                        <div class="small">Hari total</div>
+                        <div class="num" id="totalDays">28</div>
+                    </div>
+                    <div class="stat">
+                        <div class="small">Hari aman</div>
+                        <div class="num" id="safeDays">0</div>
+                    </div>
+                    <div class="stat">
+                        <div class="small">Hari reaksi</div>
+                        <div class="num" id="reactDays">0</div>
+                    </div>
+                    <div class="stat">
+                        <div class="small">Produk aktif</div>
+                        <div class="num" id="activeProd">Facewash</div>
+                    </div>
+                </div>
+
+                <div style="margin-top:12px" class="tracker-toolbar">
+                    <button class="btn" id="exportCSV">Export CSV</button>
+                    <button class="btn secondary" id="exportJSON">Export JSON</button>
+                    <button class="btn secondary" id="importJSON">Import JSON</button>
+                    <button class="btn secondary" id="resetAll">Reset Data</button>
+                    <div style="flex:1"></div>
+                    <label class="small">Filter:</label>
+                    <select id="filterSelect" class="select">
+                        <option value="all">Semua</option>
+                        <option value="safe">Aman</option>
+                        <option value="react">Ada reaksi</option>
+                    </select>
+                </div>
+            </div>
+            <aside>
+                <div class="card">
+                    <div class="section-title">
+                        <h2>Skin Tracker (Harian)</h2>
+                    </div>
+                    <div class="small">Isi tiap hari. Foto tersimpan di browser. Gunakan filter / search untuk temukan
+                        hari tertentu.</div>
+
+                    <div class="toolbar">
+                        <button class="btn secondary" id="addToday">Isi hari ini</button>
+                        <button class="btn" id="saveAll">Simpan</button>
+
+                    </div>
+
+                    <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+                        <input id="searchBox" placeholder="Cari catatan atau area..."
+                            style="flex:1;padding:8px;border-radius:8px;border:1px solid #e5e7eb">
+                        <select id="filterSelect" class="select">
+                            <option value="all">Semua</option>
+                            <option value="aman">Aman</option>
+                            <option value="react">Ada reaksi</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top:12px; overflow:auto; max-height:600px">
+                        <table id="trackerTable">
+                            <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Hari</th>
+                                    <th>Produk</th>
+                                    <th>Pagi</th>
+                                    <th>Malam</th>
+                                    <th>Reaksi</th>
+                                    <th>Area</th>
+                                    <th>Foto</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div style="margin-top:10px" class="small">Double-klik sel foto untuk upload. Tekan Ctrl/Cmd+S untuk
+                        menyimpan cepat.</div>
+                </div>
+
+                <div class="card" style="margin-top:12px">
+                    <div class="section-title">
+                        <h2>Pengingat & Reminder</h2>
+                    </div>
+                    <div class="small">Set pengingat harian (offline). Notifikasi menggunakan Notification API (minta
+                        izin).</div>
+                    <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+                        <input id="remTime" type="time" value="08:00" class="select">
+                        <button class="btn secondary" id="setRem">Set Pagi</button>
+                    </div>
+                    <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
+                        <input id="remTime2" type="time" value="21:00" class="select">
+                        <button class="btn secondary" id="setRem2">Set Malam</button>
+                    </div>
+                    <div style="margin-top:8px"><button class="btn" id="clearRem">Hapus Semua Reminder</button></div>
+                </div>
+
+            </aside>
+        </main>
+
+        <footer class="wrap">
+            <div class="small">Data tersimpan lokal di browser. Fitur AI ringkasan berjalan secara lokal — tidak dikirim
+                ke server.</div>
+        </footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
