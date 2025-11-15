@@ -1,85 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Skin Tracker Pro - Smart Skincare Journal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- UBAH JUDUL APLIKASI DI SINI -->
+    <title>Skin Tracker Pro - Jurnal Skincare Pintar</title>
+    <!-- UBAH FONT JIKA DIPERLUKAN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
+        /* ================================
+           VARIABEL WARNA & TEMA - UBAH DI SINI
+           ================================ */
         :root {
-            --primary: #10b981;
-            --primary-light: #34d399;
-            --primary-dark: #059669;
-            --secondary: #3b82f6;
-            --secondary-light: #60a5fa;
+            /* WARNA UTAMA */
+            --primary: #8110b9;
+            --primary-light: #c155ff;
+            --primary-dark: #47015b;
+            --secondary: #670035;
+            /* ← GANTI: Pink rose (lebih harmonis) */
+            --secondary-light: #f472b6;
+            /* ← GANTI: Pink muda */
             --danger: #ef4444;
             --warning: #f59e0b;
-            --success: #22c55e;
+            --success: #474242;
+            /* ← GANTI: Emerald hijau (lebih jelas) */
             --info: #06b6d4;
-            
+
+            /* WARNA LATAR BELAKANG */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --bg-quaternary: #e2e8f0;
-            
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-tertiary: #64748b;
-            --text-quaternary: #94a3b8;
-            
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
-            --border-dark: #cbd5e1;
-            
+            --bg-secondary: #faf5ff;
+            /* ← GANTI: Purple tint muda */
+            --bg-tertiary: #f5e6ff;
+            /* ← GANTI: Purple tint */
+            --bg-quaternary: #e9d5ff;
+            /* ← GANTI: Purple tint medium */
+
+            /* WARNA TEKS */
+            --text-primary: #2d1b4e;
+            /* ← GANTI: Deep purple-black (lebih premium) */
+            --text-secondary: #4c1d95;
+            /* ← GANTI: Purple dark */
+            --text-tertiary: #6b21a8;
+            /* ← GANTI: Purple medium */
+            --text-quaternary: #a855f7;
+            /* ← GANTI: Purple terang */
+
+            /* WARNA BORDER */
+            --border: #e9d5ff;
+            /* ← GANTI: Purple border */
+            --border-light: #f5e6ff;
+            /* ← GANTI: Purple border muda */
+            --border-dark: #d8b4fe;
+            /* ← GANTI: Purple border medium */
+
+            /* EFEK BAYANGAN - TETAP */
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            
+
+            /* RADIUS SUDUT - TETAP */
             --radius: 16px;
             --radius-sm: 12px;
             --radius-xs: 8px;
-            
+
+            /* TRANSISI ANIMASI - TETAP */
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* TEMA GELAP */
         [data-theme="dark"] {
-            --primary: #34d399;
-            --primary-light: #6ee7b7;
-            --primary-dark: #10b981;
-            --secondary: #60a5fa;
-            --secondary-light: #93c5fd;
+            /* WARNA UTAMA UNTUK TEMA GELAP */
+            --primary: #a855f7;
+            /* ← GANTI: Purple lebih terang di dark */
+            --primary-light: #c084fc;
+            /* ← GANTI: Purple muda */
+            --primary-dark: #8110b9;
+            /* ← Pakai primary asli jadi dark */
+            --secondary: #670035;
+            /* ← GANTI: Pink muda */
+            --secondary-light: #f9a8d4;
+            /* ← GANTI: Pink sangat muda */
             --danger: #f87171;
             --warning: #fbbf24;
-            --success: #4ade80;
+            --success: #474242;
+            /* ← GANTI: Emerald muda */
             --info: #22d3ee;
-            
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --bg-quaternary: #475569;
-            
-            --text-primary: #f8fafc;
-            --text-secondary: #e2e8f0;
-            --text-tertiary: #cbd5e1;
-            --text-quaternary: #94a3b8;
-            
-            --border: #334155;
-            --border-light: #475569;
-            --border-dark: #64748b;
+
+            /* WARNA LATAR UNTUK TEMA GELAP */
+            --bg-primary: #1a0b2e;
+            /* ← GANTI: Deep purple-black */
+            --bg-secondary: #2d1b4e;
+            /* ← GANTI: Purple dark */
+            --bg-tertiary: #3d2463;
+            /* ← GANTI: Purple medium dark */
+            --bg-quaternary: #4c1d95;
+            /* ← GANTI: Purple medium */
+
+            /* WARNA TEKS UNTUK TEMA GELAP */
+            --text-primary: #faf5ff;
+            /* ← GANTI: Purple white */
+            --text-secondary: #e9d5ff;
+            /* ← GANTI: Purple muda */
+            --text-tertiary: #d8b4fe;
+            /* ← GANTI: Purple medium */
+            --text-quaternary: #c084fc;
+            /* ← GANTI: Purple terang */
+
+            /* WARNA BORDER UNTUK TEMA GELAP */
+            --border: #4c1d95;
+            /* ← GANTI: Purple dark border */
+            --border-light: #6b21a8;
+            /* ← GANTI: Purple medium border */
+            --border-dark: #7e22ce;
+            /* ← GANTI: Purple light border */
         }
 
+        /* ================================
+           STYLE GLOBAL - UBAH HANYA JIKA PERLU
+           ================================ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* UBAH TRANSISI DI SINI (transisi saat mengubah tema) */
+            transition: background-color 0.4s ease,
+                color 0.4s ease,
+                border-color 0.4s ease;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            /* UBAH FONT DI SINI */
             background: var(--bg-secondary);
             color: var(--text-primary);
             line-height: 1.6;
@@ -88,9 +145,10 @@
             overflow-x: hidden;
         }
 
-        /* Custom Scrollbar */
+        /* Custom Scrollbar - UBAH STYLE SCROLLBAR DI SINI */
         ::-webkit-scrollbar {
             width: 8px;
+            /* UBAH LEBAR SCROLLBAR */
             height: 8px;
         }
 
@@ -107,14 +165,17 @@
             background: var(--text-tertiary);
         }
 
-        /* Container */
+        /* Container - UBAH MAX-WIDTH JIKA PERLU */
         .container {
             max-width: 1400px;
+            /* UBAH LEBAR MAKSIMUM KONTAINER */
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header */
+        /* ================================
+           HEADER - UBAH LOGO & TEKS DI BAGIAN HTML
+           ================================ */
         header {
             background: var(--bg-primary);
             box-shadow: var(--shadow-sm);
@@ -143,6 +204,7 @@
 
         .logo {
             width: 40px;
+            /* UBAH UKURAN LOGO */
             height: 40px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             border-radius: var(--radius-xs);
@@ -150,12 +212,25 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
+            /* UBAH UKURAN IKON LOGO */
             color: white;
             font-weight: 700;
         }
 
+        /* CSS jika logo ingin memakai foto (jika tidak bisa dihapus saja) */
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: var(--radius-xs);
+        }
+
+        /* PENUTUP CSS jika logo ingin memakai foto */
+
+
         .header-text h1 {
             font-size: 20px;
+            /* UBAH UKURAN JUDUL */
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 2px;
@@ -163,6 +238,7 @@
 
         .header-text p {
             font-size: 13px;
+            /* UBAH UKURAN SUBJUDUL */
             color: var(--text-secondary);
         }
 
@@ -204,9 +280,87 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Quick Stats Bar */
+        /* CSS TODAY BANNER (Banner Hari Ini)*/
+        .today-banner {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        .today-banner-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .today-info {
+            flex: 1;
+        }
+
+        .today-date {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .today-phase {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .today-products {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .today-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .today-phase {
+                font-size: 20px;
+            }
+
+            .today-actions {
+                width: 100%;
+                justify-content: stretch;
+            }
+
+            .today-actions .btn {
+                flex: 1;
+            }
+        }
+
+        /* PENUTUP CSS TODAY BANNER (Banner Hari Ini)*/
+
+        /* ================================
+           QUICK STATS BAR - UBAH WARNA & TEKS DI HTML
+           ================================ */
         .quick-stats {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            /* UBAH GRADIENT */
             color: white;
             padding: 12px 0;
             margin-bottom: 24px;
@@ -228,16 +382,20 @@
 
         .quick-stat-number {
             font-size: 24px;
+            /* UBAH UKURAN ANGKA */
             font-weight: 700;
             margin-bottom: 4px;
         }
 
         .quick-stat-label {
             font-size: 12px;
+            /* UBAH UKURAN LABEL */
             opacity: 0.9;
         }
 
-        /* Main Layout */
+        /* ================================
+           MAIN LAYOUT - UBAH GRID LAYOUT DI SINI
+           ================================ */
         main {
             padding: 24px 0;
             min-height: calc(100vh - 200px);
@@ -246,21 +404,26 @@
         .main-grid {
             display: grid;
             grid-template-columns: 1fr;
+            /* UBAH LAYOUT GRID */
             gap: 24px;
         }
 
         @media (min-width: 1024px) {
             .main-grid {
                 grid-template-columns: 2fr 1fr;
+                /* UBAH PROPORSI KOLOM */
             }
         }
 
-        /* Cards */
+        /* ================================
+           CARDS - UBAH STYLE KARTU DI SINI
+           ================================ */
         .card {
             background: var(--bg-primary);
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
             padding: 24px;
+            /* UBAH PADDING KARTU */
             margin-bottom: 20px;
             transition: var(--transition);
             border: 1px solid var(--border-light);
@@ -275,6 +438,7 @@
             left: 0;
             right: 0;
             height: 3px;
+            /* UBAH TEBAL GARIS ATAS */
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             opacity: 0;
             transition: var(--transition);
@@ -287,6 +451,7 @@
         .card:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-2px);
+            /* UBAH JARAK HOVER */
         }
 
         .card-header {
@@ -300,6 +465,7 @@
 
         .card-title {
             font-size: 18px;
+            /* UBAH UKURAN JUDUL KARTU */
             font-weight: 700;
             color: var(--text-primary);
             display: flex;
@@ -309,6 +475,7 @@
 
         .card-subtitle {
             font-size: 13px;
+            /* UBAH UKURAN SUBJUDUL KARTU */
             color: var(--text-secondary);
             margin-top: 4px;
         }
@@ -319,12 +486,16 @@
             flex-wrap: wrap;
         }
 
-        /* Buttons */
+        /* ================================
+           BUTTONS - UBAH STYLE TOMBOL DI SINI
+           ================================ */
         .btn {
             padding: 10px 16px;
+            /* UBAH PADDING TOMBOL */
             border: none;
             border-radius: var(--radius-xs);
             font-size: 14px;
+            /* UBAH UKURAN TEKS TOMBOL */
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
@@ -333,6 +504,7 @@
             gap: 8px;
             text-decoration: none;
             min-height: 44px;
+            /* UBAH TINGGI MINIMAL TOMBOL */
             position: relative;
             overflow: hidden;
         }
@@ -357,6 +529,7 @@
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            /* UBAH GRADIENT */
             color: white;
             box-shadow: var(--shadow-sm);
         }
@@ -378,17 +551,20 @@
         }
 
         .btn-danger {
-            background: linear-gradient(135deg, var(--danger), #f87171);
+            background: linear-gradient(135deg, var(--primary-dark), #47015b);
+            /* UBAH GRADIENT */
             color: white;
         }
 
         .btn-success {
             background: linear-gradient(135deg, var(--success), #4ade80);
+            /* UBAH GRADIENT */
             color: white;
         }
 
         .btn-icon {
             padding: 8px 12px;
+            /* UBAH PADDING TOMBOL IKON */
             min-height: auto;
         }
 
@@ -398,14 +574,18 @@
             flex-wrap: wrap;
         }
 
-        /* Forms */
+        /* ================================
+           FORMS - UBAH STYLE FORM DI SINI
+           ================================ */
         .form-group {
             margin-bottom: 16px;
+            /* UBAH JARAK FORM GROUP */
         }
 
         .form-label {
             display: block;
             font-size: 14px;
+            /* UBAH UKURAN LABEL */
             font-weight: 500;
             color: var(--text-primary);
             margin-bottom: 6px;
@@ -414,9 +594,11 @@
         .form-control {
             width: 100%;
             padding: 12px 16px;
+            /* UBAH PADDING INPUT */
             border: 1px solid var(--border);
             border-radius: var(--radius-xs);
             font-size: 14px;
+            /* UBAH UKURAN TEKS INPUT */
             background: var(--bg-primary);
             color: var(--text-primary);
             transition: var(--transition);
@@ -426,6 +608,7 @@
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            /* UBAH WARNA FOCUS */
             transform: translateY(-1px);
         }
 
@@ -445,10 +628,13 @@
             padding-left: 44px;
         }
 
-        /* Quick Actions */
+        /* ================================
+           QUICK ACTIONS - UBAH DI HTML
+           ================================ */
         .quick-actions {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            /* UBAH GRID */
             gap: 12px;
             margin-bottom: 20px;
         }
@@ -458,6 +644,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius-xs);
             padding: 16px;
+            /* UBAH PADDING */
             text-align: center;
             cursor: pointer;
             transition: var(--transition);
@@ -472,19 +659,24 @@
 
         .quick-action i {
             font-size: 24px;
+            /* UBAH UKURAN IKON */
             margin-bottom: 8px;
             display: block;
         }
 
         .quick-action span {
             font-size: 12px;
+            /* UBAH UKURAN TEKS */
             font-weight: 500;
         }
 
-        /* Schedule Section */
+        /* ================================
+           SCHEDULE SECTION - UBAH DI HTML
+           ================================ */
         .schedule-timeline {
             position: relative;
             padding-left: 30px;
+            /* UBAH JARAK KIRI */
         }
 
         .schedule-timeline::before {
@@ -494,6 +686,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
+            /* UBAH TEBAL GARIS */
             background: var(--border);
         }
 
@@ -502,10 +695,41 @@
             background: var(--bg-tertiary);
             border-radius: var(--radius-xs);
             padding: 16px;
+            /* UBAH PADDING */
             margin-bottom: 16px;
             border: 1px solid var(--border);
             transition: var(--transition);
         }
+
+        /* CSS ACTIVE PHASE INDICATOR */
+        .schedule-item.active-phase {
+            border: 2px solid var(--primary);
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-quaternary));
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+
+        .schedule-item.active-phase::before {
+            background: var(--primary);
+            width: 14px;
+            height: 14px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        /* PENUTUP CSS ACTIVE PHASE INDICATOR */
 
         .schedule-item::before {
             content: '';
@@ -513,6 +737,7 @@
             left: -25px;
             top: 20px;
             width: 10px;
+            /* UBAH UKURAN BULATAN */
             height: 10px;
             border-radius: 50%;
             background: var(--primary);
@@ -521,6 +746,7 @@
 
         .schedule-item:hover {
             transform: translateX(4px);
+            /* UBAH JARAK HOVER */
             box-shadow: var(--shadow-md);
         }
 
@@ -549,6 +775,7 @@
         .tag {
             display: inline-block;
             padding: 4px 8px;
+            /* UBAH PADDING TAG */
             background: var(--primary);
             color: white;
             border-radius: 4px;
@@ -569,6 +796,44 @@
             padding: 8px 0;
         }
 
+        /* CSS untuk Active Phase pada Details */
+        details[open] summary {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        details.active-phase {
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-xs);
+            padding: 12px;
+            background: linear-gradient(135deg, transparent, rgba(16, 185, 129, 0.05));
+            animation: phaseGlow 2s ease-in-out infinite;
+        }
+
+        details.active-phase summary {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        details.active-phase summary::before {
+            content: '🔥 ';
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes phaseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+            }
+        }
+
+        /*  PENUTUP CSS collapsible */
+
         .tag-secondary {
             background: var(--secondary);
         }
@@ -581,7 +846,9 @@
             background: var(--danger);
         }
 
-        /* Enhanced Tracker */
+        /* ================================
+           ENHANCED TRACKER - UBAH DI HTML
+           ================================ */
         .tracker-container {
             background: var(--bg-primary);
             border-radius: var(--radius);
@@ -607,9 +874,11 @@
 
         .chip {
             padding: 6px 12px;
+            /* UBAH PADDING CHIP */
             background: var(--bg-primary);
             border: 1px solid var(--border);
             border-radius: 20px;
+            /* UBAH RADIUS */
             font-size: 12px;
             cursor: pointer;
             transition: var(--transition);
@@ -625,10 +894,13 @@
             transform: translateY(-1px);
         }
 
-        /* Mobile Cards */
+        /* ================================
+           MOBILE CARDS - UBAH DI HTML
+           ================================ */
         .mobile-tracker {
             padding: 16px;
             max-height: 60vh;
+            /* UBAH TINGGI MAKSIMUM */
             overflow-y: auto;
         }
 
@@ -636,11 +908,34 @@
             background: var(--bg-tertiary);
             border-radius: var(--radius-xs);
             padding: 16px;
+            /* UBAH PADDING */
             margin-bottom: 12px;
             border: 1px solid var(--border);
             transition: var(--transition);
             position: relative;
         }
+
+        /* CSS HIGHLIGHT CARD HARI INI */
+        .day-card.today {
+            border: 3px solid var(--primary);
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-quaternary));
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1), var(--shadow-lg);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1), var(--shadow-lg);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.2), var(--shadow-xl);
+            }
+        }
+
+        /* PENUTUP CSS CSS HIGHLIGHT CARD HARI INI */
 
         .day-card:hover {
             transform: translateY(-2px);
@@ -668,6 +963,7 @@
             background: var(--primary);
             color: white;
             padding: 4px 8px;
+            /* UBAH PADDING */
             border-radius: 4px;
             font-size: 12px;
             font-weight: 600;
@@ -703,15 +999,36 @@
             border: 1px solid var(--border);
             border-radius: 4px;
             padding: 6px 8px;
+            /* UBAH PADDING */
             min-height: 36px;
+            /* UBAH TINGGI MINIMAL */
             transition: var(--transition);
         }
 
         .editable:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            box-shadow: 0 0 0 3px rgba(129, 16, 185, 0.1);
+            transform: translateY(-1px);
         }
+
+        .editable:empty::before {
+    content: attr(data-placeholder);
+    color: var(--text-quaternary);
+    font-style: italic;
+    opacity: 0.5;
+    transition: var(--transition-fast);
+}
+
+.editable:hover:empty::before {
+    opacity: 0.7;
+    color: var(--primary);
+}
+
+.editable:focus::before {
+    content: '';
+    opacity: 0;
+}
 
         .reaction-quick-select {
             display: flex;
@@ -721,6 +1038,7 @@
 
         .reaction-btn {
             padding: 4px 8px;
+            /* UBAH PADDING */
             border: 1px solid var(--border);
             border-radius: 4px;
             background: var(--bg-primary);
@@ -739,10 +1057,13 @@
             transform: translateY(-1px);
         }
 
-        /* Photo Upload */
+        /* ================================
+           PHOTO UPLOAD - UBAH DI HTML
+           ================================ */
         .photo-upload {
             position: relative;
             width: 60px;
+            /* UBAH UKURAN */
             height: 60px;
             border: 2px dashed var(--border);
             border-radius: var(--radius-xs);
@@ -769,19 +1090,25 @@
         .photo-upload .placeholder {
             color: var(--text-tertiary);
             font-size: 20px;
+            /* UBAH UKURAN IKON */
         }
 
-        /* Summary Stats */
+        /* ================================
+           SUMMARY STATS - UBAH DI HTML
+           ================================ */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            /* UBAH GRID */
             gap: 16px;
             margin-bottom: 20px;
         }
 
         .stat-card {
             background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-quaternary));
+            /* UBAH GRADIENT */
             padding: 20px;
+            /* UBAH PADDING */
             border-radius: var(--radius-xs);
             text-align: center;
             border: 1px solid var(--border);
@@ -797,16 +1124,19 @@
             left: 0;
             right: 0;
             height: 3px;
+            /* UBAH TEBAL GARIS */
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .stat-card:hover {
             transform: translateY(-4px);
+            /* UBAH JARAK HOVER */
             box-shadow: var(--shadow-lg);
         }
 
         .stat-number {
             font-size: 28px;
+            /* UBAH UKURAN ANGKA */
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 4px;
@@ -814,6 +1144,7 @@
 
         .stat-label {
             font-size: 12px;
+            /* UBAH UKURAN LABEL */
             color: var(--text-secondary);
             font-weight: 500;
         }
@@ -835,10 +1166,13 @@
             color: var(--danger);
         }
 
-        /* Timeline */
+        /* ================================
+           TIMELINE - UBAH DI HTML
+           ================================ */
         .timeline-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            /* UBAH GRID */
             gap: 12px;
         }
 
@@ -846,6 +1180,7 @@
             background: var(--bg-tertiary);
             border-radius: var(--radius-xs);
             padding: 8px;
+            /* UBAH PADDING */
             text-align: center;
             transition: var(--transition);
             border: 1px solid var(--border);
@@ -854,11 +1189,13 @@
 
         .timeline-item:hover {
             transform: translateY(-4px) scale(1.05);
+            /* UBAH EFEK HOVER */
             box-shadow: var(--shadow-lg);
         }
 
         .timeline-date {
             font-size: 11px;
+            /* UBAH UKURAN TANGGAL */
             color: var(--text-secondary);
             margin-bottom: 8px;
             font-weight: 500;
@@ -867,34 +1204,45 @@
         .timeline-photo {
             width: 100%;
             height: 80px;
+            /* UBAH TINGGI FOTO */
             object-fit: cover;
             border-radius: var(--radius-xs);
         }
 
-        /* Chart */
+        /* ================================
+           CHART - UBAH DI JAVASCRIPT
+           ================================ */
         .chart-container {
             position: relative;
             height: 300px;
+            /* UBAH TINGGI CHART */
             margin: 20px 0;
             background: var(--bg-tertiary);
             border-radius: var(--radius-xs);
             padding: 16px;
         }
 
-        /* Floating Action Button */
+        /* ================================
+           FLOATING ACTION BUTTON - UBAH DI HTML
+           ================================ */
         .fab {
             position: fixed;
             bottom: 24px;
+            /* UBAH POSISI BAWAH */
             right: 24px;
+            /* UBAH POSISI KANAN */
             width: 56px;
+            /* UBAH UKURAN */
             height: 56px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            /* UBAH GRADIENT */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 24px;
+            /* UBAH UKURAN IKON */
             cursor: pointer;
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
@@ -903,13 +1251,17 @@
 
         .fab:hover {
             transform: scale(1.1) rotate(90deg);
+            /* UBAH EFEK HOVER */
             box-shadow: var(--shadow-xl);
         }
 
-        /* Progress Bar */
+        /* ================================
+           PROGRESS BAR - UBAH DI HTML
+           ================================ */
         .progress-bar {
             width: 100%;
             height: 8px;
+            /* UBAH TINGGI */
             background: var(--bg-tertiary);
             border-radius: 4px;
             overflow: hidden;
@@ -919,11 +1271,15 @@
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            /* UBAH GRADIENT */
             border-radius: 4px;
             transition: width 0.5s ease;
+            /* UBAH DURASI ANIMASI */
         }
 
-        /* Tooltips */
+        /* ================================
+           TOOLTIPS - UBAH DI HTML
+           ================================ */
         .tooltip {
             position: relative;
         }
@@ -937,6 +1293,7 @@
             background: var(--text-primary);
             color: var(--bg-primary);
             padding: 6px 12px;
+            /* UBAH PADDING */
             border-radius: 4px;
             font-size: 12px;
             white-space: nowrap;
@@ -949,65 +1306,99 @@
             opacity: 1;
         }
 
-        /* Loading States */
+        /* ================================
+           LOADING STATES - UBAH DI SINI
+           ================================ */
         .skeleton {
             background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-quaternary) 50%, var(--bg-tertiary) 75%);
             background-size: 200% 100%;
             animation: loading 1.5s infinite;
+            /* UBAH DURASI */
         }
 
         @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
         }
 
-        /* Animations */
+        /* ================================
+           ANIMATIONS - UBAH DI SINI
+           ================================ */
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateX(-50%) scale(0.9);
+                /* UBAH JARAK */
             }
+
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(-50%) scale(1)
             }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            /* UBAH SKALA */
         }
 
         .animate-in {
             animation: slideInUp 0.5s ease-out;
+            /* UBAH DURASI */
         }
 
         .animate-fade {
             animation: fadeIn 0.3s ease-out;
+            /* UBAH DURASI */
         }
 
         .pulse {
             animation: pulse 2s infinite;
+            /* UBAH DURASI */
         }
 
-        /* Toast Notification */
+        /* ================================
+           TOAST NOTIFICATION - UBAH DI JAVASCRIPT
+           ================================ */
         .toast {
             position: fixed;
             bottom: 24px;
+            /* UBAH POSISI */
             left: 50%;
             transform: translateX(-50%);
             background: var(--text-primary);
             color: var(--bg-primary);
             padding: 16px 24px;
+            /* UBAH PADDING */
             border-radius: var(--radius);
             box-shadow: var(--shadow-xl);
             z-index: 2000;
             animation: slideInUp 0.3s ease-out;
+            /* UBAH DURASI */
             max-width: 90%;
             text-align: center;
         }
@@ -1027,7 +1418,9 @@
             color: white;
         }
 
-        /* Modal */
+        /* ================================
+           MODAL - UBAH DI JAVASCRIPT
+           ================================ */
         .modal {
             position: fixed;
             top: 0;
@@ -1035,6 +1428,7 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.5);
+            /* UBAH OPACITY */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1053,6 +1447,7 @@
             background: var(--bg-primary);
             border-radius: var(--radius);
             padding: 24px;
+            /* UBAH PADDING */
             max-width: 90%;
             max-height: 90%;
             overflow-y: auto;
@@ -1064,10 +1459,13 @@
             transform: scale(1);
         }
 
-        /* Responsive */
+        /* ================================
+           RESPONSIVE - UBAH BREAKPOINT DI SINI
+           ================================ */
         @media (max-width: 768px) {
             .container {
                 padding: 0 16px;
+                /* UBAH PADDING MOBILE */
             }
 
             .header-content {
@@ -1076,14 +1474,17 @@
 
             .header-text h1 {
                 font-size: 18px;
+                /* UBAH UKURAN JUDUL MOBILE */
             }
 
             .card {
                 padding: 16px;
+                /* UBAH PADDING KARTU MOBILE */
             }
 
             .btn {
                 font-size: 13px;
+                /* UBAH UKURAN TOMBOL MOBILE */
                 padding: 8px 12px;
             }
 
@@ -1093,71 +1494,157 @@
 
             .quick-stat-number {
                 font-size: 20px;
+                /* UBAH UKURAN ANGKA MOBILE */
             }
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                /* UBAH GRID MOBILE */
                 gap: 12px;
             }
 
             .stat-card {
                 padding: 16px;
+                /* UBAH PADDING STAT MOBILE */
             }
 
             .stat-number {
                 font-size: 24px;
+                /* UBAH UKURAN ANGKA MOBILE */
             }
 
             .fab {
                 bottom: 20px;
+                /* UBAH POSISI FAB MOBILE */
                 right: 20px;
                 width: 48px;
+                /* UBAH UKURAN FAB MOBILE */
                 height: 48px;
                 font-size: 20px;
             }
         }
 
-        /* Utility Classes */
-        .text-center { text-align: center; }
-        .text-right { text-align: right; }
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .justify-center { justify-content: center; }
-        .gap-1 { gap: 4px; }
-        .gap-2 { gap: 8px; }
-        .gap-3 { gap: 12px; }
-        .gap-4 { gap: 16px; }
-        .mt-0 { margin-top: 0; }
-        .mt-1 { margin-top: 4px; }
-        .mt-2 { margin-top: 8px; }
-        .mt-3 { margin-top: 12px; }
-        .mt-4 { margin-top: 16px; }
-        .mb-0 { margin-bottom: 0; }
-        .mb-1 { margin-bottom: 4px; }
-        .mb-2 { margin-bottom: 8px; }
-        .mb-3 { margin-bottom: 12px; }
-        .mb-4 { margin-bottom: 16px; }
-        .hidden { display: none; }
-        .w-full { width: 100%; }
-        .h-full { height: 100%; }
+        /* ================================
+           UTILITY CLASSES - TAMBAH KELAS DI SINI
+           ================================ */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .gap-1 {
+            gap: 4px;
+        }
+
+        .gap-2 {
+            gap: 8px;
+        }
+
+        .gap-3 {
+            gap: 12px;
+        }
+
+        .gap-4 {
+            gap: 16px;
+        }
+
+        .mt-0 {
+            margin-top: 0;
+        }
+
+        .mt-1 {
+            margin-top: 4px;
+        }
+
+        .mt-2 {
+            margin-top: 8px;
+        }
+
+        .mt-3 {
+            margin-top: 12px;
+        }
+
+        .mt-4 {
+            margin-top: 16px;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .mb-1 {
+            margin-bottom: 4px;
+        }
+
+        .mb-2 {
+            margin-bottom: 8px;
+        }
+
+        .mb-3 {
+            margin-bottom: 12px;
+        }
+
+        .mb-4 {
+            margin-bottom: 16px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .h-full {
+            height: 100%;
+        }
 
         /* Dark mode specific adjustments */
         [data-theme="dark"] .skeleton {
             background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-quaternary) 50%, var(--bg-tertiary) 75%);
         }
+
+        /*PENUTUP Dark mode specific adjustments */
     </style>
 </head>
+
 <body>
-    <!-- Header -->
+    <!-- ================================
+       HEADER - UBAH LOGO, JUDUL, & PERIODE DI SINI
+       ================================ -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
-                    <div class="logo">🌿</div>
+                    <!-- UBAH IKON LOGO DI SINI -->
+                    <div class="logo">
+                        <img src="logobaru.png" alt="logo">
+                    </div>
                     <div class="header-text">
+                        <!-- UBAH JUDUL APLIKASI DI SINI -->
                         <h1>Skin Tracker Pro</h1>
-                        <p>Smart Skincare Journal • 14 Nov - 11 Des 2025</p>
+                        <!-- UBAH PERIODE TRACKER DI SINI -->
+                        <p>Jurnal Skincare Pintar • 14 Nov - 11 Des 2025</p>
                     </div>
                 </div>
                 <div class="header-right">
@@ -1165,6 +1652,7 @@
                         <i class="far fa-clock"></i>
                         <span id="clock-time">--:--:--</span>
                     </div>
+                    <!-- TOMBOL UBAH TEMA -->
                     <button class="theme-toggle" onclick="toggleTheme()">
                         <i class="fas fa-moon" id="theme-icon"></i>
                         <span id="theme-text">Dark</span>
@@ -1174,7 +1662,36 @@
         </div>
     </header>
 
-    <!-- Quick Stats Bar -->
+    <!-- ================================
+       QUICK STATS BAR - UBAH TEKS DI HTML DI SINI
+       ================================ -->
+    <!-- TODAY BANNER (Banner Hari Ini) -->
+    <div class="container">
+        <div class="today-banner" id="todayBanner">
+            <div class="today-banner-content container">
+                <div class="today-info">
+                    <div class="today-date">📅 <span id="todayDateFull">Loading...</span></div>
+                    <div class="today-phase">
+                        <span id="todayPhaseText">Memuat tahap...</span>
+                    </div>
+                    <div class="today-products">
+                        📦 Produk aktif: <span id="todayProductsList">Loading...</span>
+                    </div>
+                </div>
+                <div class="today-actions">
+                    <button class="btn btn-secondary" onclick="scrollToToday()"
+                        style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: white;">
+                        <i class="fas fa-arrow-down"></i>
+                        Isi Hari Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================
+       QUICK STATS BAR - UBAH TEKS DI HTML
+       ================================ -->
     <div class="container">
         <div class="quick-stats animate-in">
             <div class="quick-stats-content">
@@ -1198,28 +1715,33 @@
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- ================================
+       MAIN CONTENT - UBAH KONTEN DI SINI
+       ================================ -->
     <main>
         <div class="container">
             <div class="main-grid">
-                <!-- Left Column -->
+                <!-- KOLOM KIRI -->
                 <div class="left-column">
-                    <!-- Quick Actions -->
+                    <!-- ================================
+                       QUICK ACTIONS - UBAH TEKS & IKON DI SINI
+                       ================================ -->
                     <div class="card animate-in">
                         <div class="card-header">
                             <h2 class="card-title">
                                 <i class="fas fa-bolt"></i>
-                                Quick Actions
+                                Pintasan
                             </h2>
                         </div>
                         <div class="quick-actions">
+                            <!-- TAMBAH/HAPUS QUICK ACTION DI SINI -->
                             <div class="quick-action" onclick="fillToday()">
                                 <i class="fas fa-calendar-day"></i>
                                 <span>Isi Hari Ini</span>
                             </div>
                             <div class="quick-action" onclick="quickPhoto()">
                                 <i class="fas fa-camera"></i>
-                                <span>Quick Photo</span>
+                                <span>Pintasan Foto</span>
                             </div>
                             <div class="quick-action" onclick="showTemplates()">
                                 <i class="fas fa-file-alt"></i>
@@ -1232,7 +1754,12 @@
                         </div>
                     </div>
 
-                    <!-- Schedule Timeline -->
+                    <!-- ================================
+                   SCHEDULE TIMELINE - UBAH JADWAL DI SINI
+                   ================================ -->
+                    <!-- ================================
+                   SCHEDULE TIMELINE - UBAH JADWAL DI SINI
+                   ================================ -->
                     <div class="card animate-in">
                         <div class="card-header">
                             <h2 class="card-title">
@@ -1246,138 +1773,166 @@
                             </div>
                         </div>
 
-                        <details open>
-                            <summary>Tahap 1 — Face Wash (14 – 20 Nov 2025)</summary>
-                        <div class="schedule-timeline">
-                            <div class="schedule-item">
-                                <div class="schedule-header" onclick="toggleSchedule(this)">
-                                    <span class="schedule-title">
-                                        <i class="fas fa-soap"></i>
-                                        Tahap 1: Face Wash
-                                    </span>
-                                    <span class="tag">14-20 Nov</span>
-                                </div>
-                                <div class="schedule-content">
-                                    <p><strong>Tujuan:</strong> Mengetes pembersih wajah</p>
-                                    <p><strong>Perhatikan:</strong> Kulit kering, perih, bruntusan?</p>
-                                    <p><strong>Urutan:</strong> Pagi & Malam → Face wash</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 0%"></div>
+                        <!-- TAHAP 1 -->
+                        <details id="phase-1">
+                            <summary>🧼 Tahap 1 — Face Wash (14 – 20 Nov 2025)</summary>
+                            <div class="schedule-timeline">
+                                <div class="schedule-item">
+                                    <div class="schedule-header">
+                                        <span class="schedule-title">
+                                            <i class="fas fa-soap"></i>
+                                            Tahap 1: Face Wash
+                                        </span>
+                                        <span class="tag">14-20 Nov</span>
+                                    </div>
+                                    <div class="schedule-content">
+                                        <p><strong>Tujuan:</strong> Mengetes pembersih wajah</p>
+                                        <p><strong>Perhatikan:</strong> Kulit kering, perih, bruntusan, gatal?</p>
+                                        <p><strong>Urutan:</strong> Pagi & Malam → Face wash</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill phase-1-progress" style="width: 0%"></div>
+                                        </div>
+                                        <p class="phase-1-status" style="font-size: 12px; margin-top: 8px;">⏳ Belum
+                                            dimulai</p>
                                     </div>
                                 </div>
                             </div>
-                            </details>
-                            
-                            <details>
-                                <summary>Tahap 2 — Tambahkan Moisturizer (21 – 27 Nov 2025)</summary>
-                            <div class="schedule-item">
-                                <div class="schedule-header" onclick="toggleSchedule(this)">
-                                    <span class="schedule-title">
-                                        <i class="fas fa-tint"></i>
-                                        Tahap 2: Moisturizer
-                                    </span>
-                                    <span class="tag tag-secondary">21-27 Nov</span>
-                                </div>
-                                <div class="schedule-content">
-                                    <p><strong>Tujuan:</strong> Menjaga skin barrier</p>
-                                    <p><strong>Perhatikan:</strong> Jerawat kecil, gatal, panas?</p>
-                                    <p><strong>Urutan:</strong> Face wash → Moisturizer</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            </details>
+                        </details>
 
-                            <details>
-                                <summary>Tahap 3 — Tambahkan Sunscreen (28 Nov – 4 Des 2025)</summary>
-                            <div class="schedule-item">
-                                <div class="schedule-header" onclick="toggleSchedule(this)">
-                                    <span class="schedule-title">
-                                        <i class="fas fa-sun"></i>
-                                        Tahap 3: Sunscreen
-                                    </span>
-                                    <span class="tag tag-warning">28 Nov-4 Des</span>
-                                </div>
-                                <div class="schedule-content">
-                                    <p><strong>Tujuan:</strong> Perlindungan UV</p>
-                                    <p><strong>Perhatikan:</strong> Jerawat dahi/pipi, rasa berat?</p>
-                                    <p><strong>Urutan:</strong> Face wash → Moisturizer → Sunscreen</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 0%"></div>
+                        <!-- TAHAP 2 -->
+                        <details id="phase-2">
+                            <summary>💧 Tahap 2 — Tambahkan Moisturizer (21 – 27 Nov 2025)</summary>
+                            <div class="schedule-timeline">
+                                <div class="schedule-item">
+                                    <div class="schedule-header">
+                                        <span class="schedule-title">
+                                            <i class="fas fa-tint"></i>
+                                            Tahap 2: Moisturizer
+                                        </span>
+                                        <span class="tag">21-27 Nov</span>
+                                    </div>
+                                    <div class="schedule-content">
+                                        <p><strong>Tujuan:</strong> Menjaga skin barrier</p>
+                                        <p><strong>Perhatikan:</strong> Jerawat kecil, gatal, panas?</p>
+                                        <p><strong>Urutan:</strong> Pagi & Malam → Face wash → Moisturizer</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill phase-2-progress" style="width: 0%"></div>
+                                        </div>
+                                        <p class="phase-2-status" style="font-size: 12px; margin-top: 8px;">⏳ Belum
+                                            dimulai</p>
                                     </div>
                                 </div>
                             </div>
-                            </details>
+                        </details>
 
-                            <details>
-                                <summary>Tahap 4 — Tambahkan Micellar Water (5 – 11 Des 2025)</summary>
-                            <div class="schedule-item">
-                                <div class="schedule-header" onclick="toggleSchedule(this)">
-                                    <span class="schedule-title">
-                                        <i class="fas fa-water"></i>
-                                        Tahap 4: Micellar Water
-                                    </span>
-                                    <span class="tag tag-danger">5-11 Des</span>
-                                </div>
-                                <div class="schedule-content">
-                                    <p><strong>Tujuan:</strong> Double cleansing</p>
-                                    <p><strong>Perhatikan:</strong> Panas, perih, kesat?</p>
-                                    <p><strong>Urutan:</strong> Micellar Water → Face wash → Moisturizer</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 0%"></div>
+                        <!-- TAHAP 3 -->
+                        <details id="phase-3">
+                            <summary>☀️ Tahap 3 — Tambahkan Sunscreen (28 Nov – 4 Des 2025)</summary>
+                            <div class="schedule-timeline">
+                                <div class="schedule-item">
+                                    <div class="schedule-header">
+                                        <span class="schedule-title">
+                                            <i class="fas fa-sun"></i>
+                                            Tahap 3: Sunscreen
+                                        </span>
+                                        <span class="tag">28 Nov-4 Des</span>
+                                    </div>
+                                    <div class="schedule-content">
+                                        <p><strong>Tujuan:</strong> Perlindungan UV</p>
+                                        <p><strong>Perhatikan:</strong> Jerawat dahi/pipi, rasa berat, Pedih?</p>
+                                        <p><strong>Urutan:</strong> Face wash → Moisturizer → Sunscreen</p>
+                                        <p><strong style="color: red;">Catatan:</strong> Sunscreen hanya dipakai di pagi
+                                            hari</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill phase-3-progress" style="width: 0%"></div>
+                                        </div>
+                                        <p class="phase-3-status" style="font-size: 12px; margin-top: 8px;">⏳ Belum
+                                            dimulai</p>
                                     </div>
                                 </div>
                             </div>
-                            </details>
+                        </details>
 
-                            <details>
-                                <summary>Informasi Tambahan</summary>
-                            <div class="schedule-item">
-                                <div class="schedule-header" onclick="toggleSchedule(this)">
-                                    <div style="margin-top:12px" class="small">
-                        <strong>Setelah 11 Des 2025:</strong> Rutin pagi: Face wash, Moisturizer, Sunscreen. Rutin
-                        malam: Micellar Water, Face wash, Moisturizer.<br>
-                        Jarak waktu antar-produk: setelah cuci muka tunggu 30–60 detik; setelah moisturizer tunggu 2–3
-                        menit sebelum sunscreen; moisturizer malam tunggu 10–15 menit.
+                        <!-- TAHAP 4 -->
+                        <details id="phase-4">
+                            <summary>💦 Tahap 4 — Tambahkan Micellar Water (5 – 11 Des 2025)</summary>
+                            <div class="schedule-timeline">
+                                <div class="schedule-item">
+                                    <div class="schedule-header">
+                                        <span class="schedule-title">
+                                            <i class="fas fa-water"></i>
+                                            Tahap 4: Micellar Water
+                                        </span>
+                                        <span class="tag">5-11 Des</span>
+                                    </div>
+                                    <div class="schedule-content">
+                                        <p><strong>Tujuan:</strong> Double cleansing</p>
+                                        <p><strong>Perhatikan:</strong> Panas, perih, kesat?</p>
+                                        <p><strong>Urutan:</strong> Micellar Water → Face wash → Moisturizer</p>
+                                        <p><strong style="color: red;">Catatan:</strong> Micellar Wtaer hanya dipakai di
+                                            malam hari</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill phase-4-progress" style="width: 0%"></div>
+                                        </div>
+                                        <p class="phase-4-status" style="font-size: 12px; margin-top: 8px;">⏳ Belum
+                                            dimulai</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- INFORMASI TAMBAHAN -->
+                        <details id="phase-info">
+                            <summary>📋 Informasi Tambahan</summary>
+                            <div class="schedule-timeline">
+                                <div class="schedule-item">
+                                    <div class="schedule-content">
+                                        <div style="margin-top:12px">
+                                            <strong>Setelah 11 Des 2025:</strong> Rutin pagi: Face wash, Moisturizer,
+                                            Sunscreen. Rutin malam: Micellar Water, Face wash, Moisturizer.<br>
+                                            Jarak waktu antar-produk: setelah cuci muka tunggu 30–60 detik; setelah
+                                            moisturizer tunggu 2–3 menit sebelum sunscreen; moisturizer malam tunggu
+                                            10–15 menit.
+                                        </div>
+                                        <hr style="margin:14px 0;border:none;border-top:1px solid var(--border)">
+
+                                        <div>
+                                            <strong>Panduan Mendeteksi Kecocokan Tiap Produk</strong>
+                                            <ul>
+                                                <li><strong>Micellar Water:</strong> Tidak cocok = panas/perih/kesat.
+                                                    Cocok = bersih & lembap.</li>
+                                                <li><strong>Face Wash:</strong> Tidak cocok = ketarik/perih/bruntusan.
+                                                    Cocok = lembut & bersih.</li>
+                                                <li><strong>Moisturizer:</strong> Tidak cocok = panas/gatal/banyak
+                                                    jerawat. Cocok = lembap & halus.</li>
+                                                <li><strong>Sunscreen:</strong> Tidak cocok = pedih/breakout/greasy.
+                                                    Cocok = terlindungi & nyaman.</li>
+                                            </ul>
+
+                                            <div style="margin-top:8px"><strong>Catatan Penting:</strong>
+                                                <ul>
+                                                    <li>❌ Jangan tambah produk baru (serum/toner/exfoliant) sampai semua
+                                                        produk stabil minimal 3 minggu.</li>
+                                                    <li>🌤 Gunakan sunscreen tiap pagi, bahkan di dalam ruangan.</li>
+                                                    <li>💧 Hindari sabun wajah lain selama pengujian.</li>
+                                                    <li>📝 Simpan catatan harian & foto progress.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
                     </div>
-                                </div>
-                                <hr style="margin:14px 0;border:none;border-top:1px solid #f3f4f6">
 
-                    <div class="small">
-                        <strong>Panduan Mendeteksi Kecocokan Tiap Produk</strong>
-                        <ul>
-                            <li><strong>Micellar Water:</strong> Tidak cocok = panas/perih/kesat. Cocok = bersih &
-                                lembap.</li>
-                            <li><strong>Face Wash:</strong> Tidak cocok = ketarik/perih/bruntusan. Cocok = lembut &
-                                bersih.</li>
-                            <li><strong>Moisturizer:</strong> Tidak cocok = panas/gatal/banyak jerawat. Cocok = lembap &
-                                halus.</li>
-                            <li><strong>Sunscreen:</strong> Tidak cocok = pedih/breakout/greasy. Cocok = terlindungi &
-                                nyaman.</li>
-                                </ul>
-
-                        <div style="margin-top:8px"><strong>Catatan Penting:</strong>
-                            <ul>
-                                <li>❌ Jangan tambah produk baru (serum/toner/exfoliant) sampai semua produk stabil
-                                    minimal 3 minggu.</li>
-                                <li>🌤 Gunakan sunscreen tiap pagi, bahkan di dalam ruangan.</li>
-                                <li>💧 Hindari sabun wajah lain selama pengujian.</li>
-                                <li>📔 Simpan catatan harian & foto progress.</li>
-                            </ul>
-                            </div>
-                            </details>
-
-                        </div>
-                    </div>
-                    </details>
-
-                    <!-- Analysis Card -->
+                    <!-- ================================
+                       ANALYSIS CARD - UBAH DI JAVASCRIPT
+                       ================================ -->
                     <div class="card animate-in">
                         <div class="card-header">
                             <h2 class="card-title">
                                 <i class="fas fa-brain"></i>
-                                AI Analysis & Insights
+                                Analisis & Wawasan AI
                             </h2>
                             <div class="card-actions">
                                 <button class="btn btn-icon btn-secondary" onclick="refreshAnalysis()">
@@ -1391,8 +1946,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">🤖 AI Analysis:</label>
-                            <div id="aiAnalysis" style="padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-xs); font-weight: 500; border-left: 4px solid var(--primary);">
+                            <label class="form-label">🤖 Hasil Analisis:</label>
+                            <div id="aiAnalysis"
+                                style="padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-xs); font-weight: 500; border-left: 4px solid var(--primary);">
                                 <div class="skeleton" style="height: 20px; width: 80%; margin-bottom: 8px;"></div>
                                 <div class="skeleton" style="height: 16px; width: 100%; margin-bottom: 8px;"></div>
                                 <div class="skeleton" style="height: 16px; width: 60%;"></div>
@@ -1400,19 +1956,21 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">💡 Recommendations:</label>
+                            <label class="form-label">💡 Rekomendasi:</label>
                             <div id="recommendations" style="display: flex; flex-direction: column; gap: 8px;">
                                 <!-- Recommendations will be added here -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Timeline Card -->
+                    <!-- ================================
+                       TIMELINE CARD - UBAH DI JAVASCRIPT
+                       ================================ -->
                     <div class="card animate-in">
                         <div class="card-header">
                             <h2 class="card-title">
                                 <i class="fas fa-images"></i>
-                                Visual Timeline
+                                Album
                             </h2>
                             <div class="card-actions">
                                 <button class="btn btn-icon btn-secondary" onclick="toggleTimelineView()">
@@ -1427,14 +1985,16 @@
                     </div>
                 </div>
 
-                <!-- Right Column -->
+                <!-- KOLOM KANAN -->
                 <div class="right-column">
-                    <!-- Tracker Card -->
+                    <!-- ================================
+                       TRACKER CARD - UBAH DI JAVASCRIPT
+                       ================================ -->
                     <div class="card animate-in">
                         <div class="card-header">
                             <h2 class="card-title">
                                 <i class="fas fa-clipboard-check"></i>
-                                Daily Tracker
+                                Pelacak Harian
                             </h2>
                             <div class="card-actions">
                                 <button class="btn btn-icon btn-primary" onclick="saveData()">
@@ -1446,7 +2006,8 @@
                         <div class="tracker-filters">
                             <div class="search-bar" style="flex: 1;">
                                 <i class="fas fa-search"></i>
-                                <input type="text" class="form-control" id="searchInput" placeholder="Cari catatan..." onkeyup="filterData()">
+                                <input type="text" class="form-control" id="searchInput" placeholder="Cari catatan..."
+                                    onkeyup="filterData()">
                             </div>
                             <div class="filter-chips">
                                 <div class="chip active" onclick="setFilter('all', this)">Semua</div>
@@ -1461,12 +2022,14 @@
                         </div>
                     </div>
 
-                    <!-- Summary Card -->
+                    <!-- ================================
+                       SUMMARY CARD - UBAH DI JAVASCRIPT
+                       ================================ -->
                     <div class="card animate-in">
                         <div class="card-header">
                             <h2 class="card-title">
                                 <i class="fas fa-chart-pie"></i>
-                                Statistics
+                                Statistik
                             </h2>
                         </div>
 
@@ -1510,10 +2073,6 @@
                                 <i class="fas fa-file-csv"></i>
                                 CSV
                             </button>
-                            <button class="btn btn-secondary" onclick="exportJSON()">
-                                <i class="fas fa-file-code"></i>
-                                JSON
-                            </button>
                             <button class="btn btn-secondary" onclick="importData()">
                                 <i class="fas fa-file-import"></i>
                                 Import
@@ -1525,17 +2084,19 @@
                         </div>
                     </div>
 
-                    <!-- Reminder Card -->
+                    <!-- ================================
+                       REMINDER CARD - UBAH DI JAVASCRIPT
+                       ================================ -->
                     <div class="card animate-in">
                         <div class="card-header">
                             <h2 class="card-title">
                                 <i class="fas fa-bell"></i>
-                                Smart Reminders
+                                Pengingat
                             </h2>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">🌅 Morning Routine</label>
+                            <label class="form-label">☀️ Rutinitas Pagi</label>
                             <div class="flex gap-2">
                                 <input type="time" class="form-control" id="morningTime" value="08:00">
                                 <button class="btn btn-primary" onclick="setReminder('pagi')">
@@ -1546,7 +2107,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">🌙 Evening Routine</label>
+                            <label class="form-label">🌑 Rutinitas Malam</label>
                             <div class="flex gap-2">
                                 <input type="time" class="form-control" id="eveningTime" value="21:00">
                                 <button class="btn btn-primary" onclick="setReminder('malam')">
@@ -1557,7 +2118,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">⏰ Active Reminders</label>
+                            <label class="form-label">⏰ Pengingat Aktif</label>
                             <div id="activeReminders" style="display: flex; flex-direction: column; gap: 8px;">
                                 <!-- Active reminders will be shown here -->
                             </div>
@@ -1565,7 +2126,7 @@
 
                         <button class="btn btn-danger w-full" onclick="clearReminders()">
                             <i class="fas fa-bell-slash"></i>
-                            Clear All
+                            Hapus Semua Pengingat
                         </button>
                     </div>
                 </div>
@@ -1573,7 +2134,9 @@
         </div>
     </main>
 
-    <!-- Floating Action Button -->
+    <!-- ================================
+       FLOATING ACTION BUTTON - UBAH IKON DI SINI
+       ================================ -->
     <div class="fab pulse" onclick="showQuickAdd()">
         <i class="fas fa-plus"></i>
     </div>
@@ -1581,7 +2144,9 @@
     <!-- Hidden file input for photo upload -->
     <input type="file" id="photoInput" accept="image/*" style="display: none;">
 
-    <!-- Quick Add Modal -->
+    <!-- ================================
+       QUICK ADD MODAL - UBAH DI JAVASCRIPT
+       ================================ -->
     <div class="modal" id="quickAddModal">
         <div class="modal-content">
             <h3 style="margin-bottom: 16px;">Quick Add Entry</h3>
@@ -1611,14 +2176,56 @@
     </div>
 
     <script>
-        // Configuration
+        // ================================
+        // KONFIGURASI UTAMA - UBAH NILAI DI SINI
+        // ================================
         const CONFIG = {
-            startDate: new Date(2025, 10, 14),
-            daysTotal: 28,
-            storageKey: 'skintracker_pro_data',
-            themeKey: 'skintracker_pro_theme',
-            remindersKey: 'skintracker_pro_reminders'
+            startDate: new Date(2025, 10, 14), // Tanggal mulai tracker (bulan dimulai dari 0, jadi 10 = November)
+            daysTotal: 28, // Total hari pelacakan
+            storageKey: 'skintracker_pro_data', // Key untuk penyimpanan data di localStorage
+            themeKey: 'skintracker_pro_theme', // Key untuk tema
+            remindersKey: 'skintracker_pro_reminders', // Key untuk pengingat
+            // TAMBAHKAN PHASES
+            phases: [
+                {
+                    id: 1,
+                    name: 'Tahap 1: Face Wash',
+                    icon: '🧼',
+                    days: [0, 6], // Hari 1-7
+                    products: 'Face Wash',
+                    dateRange: '14-20 Nov',
+                    tagClass: ''
+                },
+                {
+                    id: 2,
+                    name: 'Tahap 2: Moisturizer',
+                    icon: '💧',
+                    days: [7, 13], // Hari 8-14
+                    products: 'Face Wash + Moisturizer',
+                    dateRange: '21-27 Nov',
+                    tagClass: 'tag-secondary'
+                },
+                {
+                    id: 3,
+                    name: 'Tahap 3: Sunscreen',
+                    icon: '☀️',
+                    days: [14, 20], // Hari 15-21
+                    products: 'Face Wash + Moisturizer + Sunscreen',
+                    dateRange: '28 Nov-4 Des',
+                    tagClass: 'tag-warning'
+                },
+                {
+                    id: 4,
+                    name: 'Tahap 4: Micellar Water',
+                    icon: '💦',
+                    days: [21, 27], // Hari 22-28
+                    products: 'Face Wash + Moisturizer + Sunscreen + Micellar Water',
+                    dateRange: '5-11 Des',
+                    tagClass: 'tag-danger'
+                }
+            ]
         };
+
 
         // Data storage
         let trackerData = [];
@@ -1626,8 +2233,19 @@
         let currentFilter = 'all';
         let quickReaction = 'aman';
 
-        // Initialize app
-        document.addEventListener('DOMContentLoaded', function() {
+        // TAMBAHKAN 2 VARIABEL INI
+        let currentDay = 0;
+        let currentPhase = null;
+
+        // ================================
+        // INISIALISASI APLIKASI
+        // ================================
+        // GANTI YANG LAMA DENGAN INI
+        document.addEventListener('DOMContentLoaded', function () {
+            // TAMBAHKAN 3 BARIS INI DI PALING ATAS
+            calculateCurrentDay();
+            updateTodayBanner();
+
             initializeApp();
             loadTheme();
             loadData();
@@ -1635,7 +2253,11 @@
             setInterval(updateClock, 1000);
             requestNotificationPermission();
             initializeReminders();
-            updateScheduleProgress();
+            updateActiveReminders();
+            updateScheduleProgress(); // Ini akan generate schedule
+
+            // TAMBAHKAN BARIS INI
+            initializeDetailsTracking();
         });
 
         function initializeApp() {
@@ -1650,7 +2272,48 @@
             }, 1000);
         }
 
-        // Theme management
+        // FUNGSI CALCULATE CURRENT DAY
+        function calculateCurrentDay() {
+            const today = new Date();
+            const diffTime = today - CONFIG.startDate;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            currentDay = Math.max(0, Math.min(diffDays, CONFIG.daysTotal - 1));
+
+            // Find current phase
+            for (const phase of CONFIG.phases) {
+                if (currentDay >= phase.days[0] && currentDay <= phase.days[1]) {
+                    currentPhase = phase;
+                    break;
+                }
+            }
+        }
+
+        // FUNGSI UPDATE TODAY BANNER
+        function updateTodayBanner() {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('id-ID', options);
+
+            document.getElementById('todayDateFull').textContent = dateString;
+
+            if (currentPhase) {
+                document.getElementById('todayPhaseText').innerHTML =
+                    `${currentPhase.icon} ${currentPhase.name} - Hari ${currentDay + 1}`;
+                document.getElementById('todayProductsList').textContent = currentPhase.products;
+            } else if (currentDay >= CONFIG.daysTotal) {
+                document.getElementById('todayPhaseText').innerHTML =
+                    `🎉 Tracker Selesai! - Semua tahap telah dilalui`;
+                document.getElementById('todayProductsList').textContent = 'Rutinitas lengkap';
+            } else if (currentDay < 0) {
+                document.getElementById('todayPhaseText').innerHTML =
+                    `⏳ Belum dimulai - Mulai ${formatDate(CONFIG.startDate)}`;
+                document.getElementById('todayProductsList').textContent = 'Belum ada produk aktif';
+            }
+        }
+
+        // ================================
+        // MANAJEMEN TEMA
+        // ================================
         function loadTheme() {
             const theme = localStorage.getItem(CONFIG.themeKey) || 'light';
             document.documentElement.setAttribute('data-theme', theme);
@@ -1673,18 +2336,22 @@
             text.textContent = theme === 'dark' ? 'Light' : 'Dark';
         }
 
-        // Clock
+        // ================================
+        // JAM DIGITAL
+        // ================================
         function updateClock() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString('id-ID', { 
-                hour: '2-digit', 
+            const timeString = now.toLocaleTimeString('id-ID', {
+                hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit'
             });
             document.getElementById('clock-time').textContent = timeString;
         }
 
-        // Generate tracker days
+        // ================================
+        // GENERATE TRACKER DAYS - UBAH PRODUK DI SINI
+        // ================================
         function generateTrackerDays() {
             const mobileTracker = document.getElementById('mobileTracker');
             mobileTracker.innerHTML = '';
@@ -1692,12 +2359,12 @@
             for (let i = 0; i < CONFIG.daysTotal; i++) {
                 const currentDate = new Date(CONFIG.startDate);
                 currentDate.setDate(CONFIG.startDate.getDate() + i);
-                
+
                 const dayData = {
                     id: i,
                     date: formatDate(currentDate),
                     dayNumber: i + 1,
-                    products: getProductsForDay(i),
+                    products: getProductsForDay(i), // Fungsi ini menentukan produk untuk setiap hari
                     pagi: '',
                     malam: '',
                     reaksi: 'aman',
@@ -1711,10 +2378,17 @@
             }
         }
 
+        // ================================
+        // PRODUK PER HARI - UBAH PRODUK & TAHAP DI SINI
+        // ================================
         function getProductsForDay(dayIndex) {
+            // Hari 1-7: Facewash
             if (dayIndex <= 6) return 'Facewash';
+            // Hari 8-14: Facewash + Moisturizer
             if (dayIndex <= 13) return 'Facewash + Moisturizer';
+            // Hari 15-21: Facewash + Moisturizer + Sunscreen
             if (dayIndex <= 20) return 'Facewash + Moisturizer + Sunscreen';
+            // Hari 22-28: Semua produk
             return 'Facewash + Moisturizer + Sunscreen + Micellar Water';
         }
 
@@ -1726,68 +2400,78 @@
             });
         }
 
-        // Create mobile card
+        // ================================
+        // CREATE MOBILE CARD - UBAH TAMPILAN KARTU DI HTML
+        // ================================
+        // GANTI FUNGSI createMobileCard YANG LAMA DENGAN INI
         function createMobileCard(data) {
             const mobileTracker = document.getElementById('mobileTracker');
             const card = document.createElement('div');
             card.className = 'day-card animate-fade';
             card.dataset.id = data.id;
-            
-            const isToday = isDateToday(data.date);
+
+            // TAMBAHKAN PENGECEKAN HARI INI
+            const isToday = data.id === currentDay;
             if (isToday) {
-                card.style.border = '2px solid var(--primary)';
+                card.classList.add('today');
+                card.id = 'todayCard'; // Untuk scroll to today
             }
-            
+
+            // Badge dan label untuk hari ini
+            const todayBadge = isToday ? '<i class="fas fa-star" style="color: var(--warning);"></i>' : '';
+            const todayLabel = isToday ? '<span style="background: var(--warning); color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 8px;">HARI INI</span>' : '';
+
             card.innerHTML = `
-                <div class="day-card-header">
-                    <div class="day-date">
-                        ${isToday ? '<i class="fas fa-star" style="color: var(--warning);"></i>' : ''}
-                        <span>${data.date}</span>
-                    </div>
-                    <div class="day-number">Hari ${data.dayNumber}</div>
+    <div class="day-card-header">
+        <div class="day-date">
+            ${todayBadge}
+            <span>${data.date}</span>
+            ${todayLabel}
+        </div>
+        <div class="day-number">Hari ${data.dayNumber}</div>
+    </div>
+    <div class="day-content">
+        <div class="day-row">
+            <span class="day-label"><i class="fas fa-sun"></i> Pagi:</span>
+            <div class="day-value">
+                <div class="editable" contenteditable="true" data-field="pagi" data-placeholder="Tap to add..." onblur="updateData(${data.id}, this)">${data.pagi || ''}</div>
+            </div>
+        </div>
+        <div class="day-row">
+            <span class="day-label"><i class="fas fa-moon"></i> Malam:</span>
+            <div class="day-value">
+                <div class="editable" contenteditable="true" data-field="malam" data-placeholder="Tap to add..." onblur="updateData(${data.id}, this)">${data.malam || ''}</div>
+            </div>
+        </div>
+        <div class="day-row">
+            <span class="day-label"><i class="fas fa-exclamation-triangle"></i> Reaksi:</span>
+            <div class="day-value">
+                <div class="reaction-quick-select">
+                    <button class="reaction-btn ${data.reaksi === 'aman' ? 'active' : ''}" onclick="setReaction(${data.id}, 'aman')">✅</button>
+                    <button class="reaction-btn ${data.reaksi === 'ringan' ? 'active' : ''}" onclick="setReaction(${data.id}, 'ringan')">⚠️</button>
+                    <button class="reaction-btn ${data.reaksi === 'iritasi' ? 'active' : ''}" onclick="setReaction(${data.id}, 'iritasi')">❌</button>
+                    <button class="reaction-btn ${data.reaksi === 'kering' ? 'active' : ''}" onclick="setReaction(${data.id}, 'kering')">💧</button>
+                    <button class="reaction-btn ${data.reaksi === 'breakout' ? 'active' : ''}" onclick="setReaction(${data.id}, 'breakout')">🔴</button>
                 </div>
-                <div class="day-content">
-                    <div class="day-row">
-                        <span class="day-label"><i class="fas fa-sun"></i> Pagi:</span>
-                        <div class="day-value">
-                            <div class="editable" contenteditable="true" data-field="pagi" onblur="updateData(${data.id}, this)">${data.pagi || 'Tap to add...'}</div>
-                        </div>
-                    </div>
-                    <div class="day-row">
-                        <span class="day-label"><i class="fas fa-moon"></i> Malam:</span>
-                        <div class="day-value">
-                            <div class="editable" contenteditable="true" data-field="malam" onblur="updateData(${data.id}, this)">${data.malam || 'Tap to add...'}</div>
-                        </div>
-                    </div>
-                    <div class="day-row">
-                        <span class="day-label"><i class="fas fa-exclamation-triangle"></i> Reaksi:</span>
-                        <div class="day-value">
-                            <div class="reaction-quick-select">
-                                <button class="reaction-btn ${data.reaksi === 'aman' ? 'active' : ''}" onclick="setReaction(${data.id}, 'aman')">✅</button>
-                                <button class="reaction-btn ${data.reaksi === 'ringan' ? 'active' : ''}" onclick="setReaction(${data.id}, 'ringan')">⚠️</button>
-                                <button class="reaction-btn ${data.reaksi === 'iritasi' ? 'active' : ''}" onclick="setReaction(${data.id}, 'iritasi')">❌</button>
-                                <button class="reaction-btn ${data.reaksi === 'kering' ? 'active' : ''}" onclick="setReaction(${data.id}, 'kering')">💧</button>
-                                <button class="reaction-btn ${data.reaksi === 'breakout' ? 'active' : ''}" onclick="setReaction(${data.id}, 'breakout')">🔴</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="day-row">
-                        <span class="day-label"><i class="fas fa-map-marker-alt"></i> Area:</span>
-                        <div class="day-value">
-                            <div class="editable" contenteditable="true" data-field="area" onblur="updateData(${data.id}, this)">${data.area || 'Tap to add...'}</div>
-                        </div>
-                    </div>
-                    <div class="day-row">
-                        <span class="day-label"><i class="fas fa-camera"></i> Foto:</span>
-                        <div class="day-value">
-                            <div class="photo-upload" onclick="uploadPhoto(${data.id})">
-                                ${data.photo ? `<img src="${data.photo}" alt="Photo">` : '<div class="placeholder"><i class="fas fa-camera"></i></div>'}
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="day-row">
+            <span class="day-label"><i class="fas fa-map-marker-alt"></i> Area:</span>
+            <div class="day-value">
+                <div class="editable" contenteditable="true" data-field="area" data-placeholder="Tap to add..." onblur="updateData(${data.id}, this)">${data.area || ''}</div>
+            </div>
+        </div>
+        <div class="day-row">
+            <span class="day-label"><i class="fas fa-camera"></i> Foto:</span>
+            <div class="day-value">
+                <div class="photo-upload" onclick="uploadPhoto(${data.id})">
+                    ${data.photo ? `<img src="${data.photo}" alt="Photo">` : '<div class="placeholder"><i class="fas fa-camera"></i></div>'}
                 </div>
-            `;
-            
+            </div>
+        </div>
+    </div>
+`;
+
             mobileTracker.appendChild(card);
         }
 
@@ -1797,28 +2481,40 @@
             return date.toDateString() === today.toDateString();
         }
 
-        // Update data
+        // ================================
+        // UPDATE DATA - UBAH LOGIKA DI SINI
+        // ================================
         function updateData(id, element) {
-            const field = element.dataset.field;
-            const value = element.textContent.trim();
-            
-            const dayData = trackerData.find(d => d.id === id);
-            if (dayData) {
-                dayData[field] = value;
-                updateSummary();
-                updateChart();
-                renderTimeline();
-                updateAIAnalysis();
-                updateRecommendations();
-                showToast('Data updated', 'success');
-            }
+    const field = element.dataset.field;
+    const value = element.textContent.trim();
+    
+    // Jangan save kalau cuma placeholder text
+    if (value === element.dataset.placeholder || value === 'Tap to add...') {
+        element.textContent = '';
+        return;
+    }
+
+    const dayData = trackerData.find(d => d.id === id);
+    if (dayData) {
+        dayData[field] = value;
+        updateSummary();
+        updateChart();
+        renderTimeline();
+        updateAIAnalysis();
+        updateRecommendations();
+        
+        // Hanya tampilkan toast kalau ada value
+        if (value) {
+            showToast('Data updated', 'success');
         }
+    }
+}
 
         function setReaction(id, reaction) {
             const dayData = trackerData.find(d => d.id === id);
             if (dayData) {
                 dayData.reaksi = reaction;
-                
+
                 // Update UI
                 const card = document.querySelector(`.day-card[data-id="${id}"]`);
                 if (card) {
@@ -1827,7 +2523,7 @@
                     });
                     event.target.classList.add('active');
                 }
-                
+
                 updateSummary();
                 updateChart();
                 updateAIAnalysis();
@@ -1836,14 +2532,16 @@
             }
         }
 
-        // Photo upload
+        // ================================
+        // PHOTO UPLOAD - UBAH LOGIKA DI SINI
+        // ================================
         function uploadPhoto(id) {
             const input = document.getElementById('photoInput');
-            input.onchange = function(e) {
+            input.onchange = function (e) {
                 const file = e.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         const photoUrl = e.target.result;
                         const dayData = trackerData.find(d => d.id === id);
                         if (dayData) {
@@ -1871,11 +2569,13 @@
             window.open(url, '_blank');
         }
 
-        // Quick actions
+        // ================================
+        // QUICK ACTIONS - UBAH FUNGSI DI SINI
+        // ================================
         function fillToday() {
             const today = new Date();
             const todayString = formatDate(today);
-            
+
             const dayData = trackerData.find(d => d.date === todayString);
             if (dayData) {
                 const card = document.querySelector(`.day-card[data-id="${dayData.id}"]`);
@@ -1892,13 +2592,34 @@
             }
         }
 
+        // TAMBAHKAN FUNGSI INI UNTUK SCROLL TO TODAY (bisa replace fungsi fillToday yang lama atau buat baru)
+        function scrollToToday() {
+            const todayCard = document.getElementById('todayCard');
+            if (todayCard) {
+                todayCard.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // Flash animation
+                todayCard.style.animation = 'none';
+                setTimeout(() => {
+                    todayCard.style.animation = 'glow 2s ease-in-out infinite';
+                }, 10);
+
+                showToast('📍 Scroll ke hari ini!', 'success');
+            } else {
+                showToast('⚠️ Hari ini belum dalam periode tracker', 'warning');
+            }
+        }
+
         function quickPhoto() {
             const input = document.getElementById('photoInput');
-            input.onchange = function(e) {
+            input.onchange = function (e) {
                 const file = e.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         const photoUrl = e.target.result;
                         showToast('Photo ready! Tap on a day card to add it.', 'success');
                         // Store temporarily
@@ -1910,6 +2631,9 @@
             input.click();
         }
 
+        // ================================
+        // TEMPLATES - UBAH TEMPLATE DI SINI
+        // ================================
         function showTemplates() {
             const templates = [
                 { name: 'Normal Day', pagi: 'Cleanser, moisturizer', malam: 'Double cleanse, moisturizer', reaksi: 'aman' },
@@ -1943,26 +2667,26 @@
             const template = templates[index];
             const today = new Date();
             const todayString = formatDate(today);
-            
+
             const dayData = trackerData.find(d => d.date === todayString);
             if (dayData) {
                 dayData.pagi = template.pagi;
                 dayData.malam = template.malam;
                 dayData.reaksi = template.reaksi;
-                
+
                 // Refresh UI
                 const card = document.querySelector(`.day-card[data-id="${dayData.id}"]`);
                 if (card) {
                     card.querySelector('[data-field="pagi"]').textContent = template.pagi;
                     card.querySelector('[data-field="malam"]').textContent = template.malam;
-                    
+
                     // Update reaction buttons
                     card.querySelectorAll('.reaction-btn').forEach(btn => {
                         btn.classList.remove('active');
                     });
                     card.querySelector(`.reaction-btn:nth-child(${getReactionIndex(template.reaksi) + 1})`).classList.add('active');
                 }
-                
+
                 updateSummary();
                 updateChart();
                 closeModal();
@@ -1987,28 +2711,30 @@
             `);
         }
 
-        // Filter data
+        // ================================
+        // FILTER DATA - UBAH FILTER DI SINI
+        // ================================
         function setFilter(filter, element) {
             currentFilter = filter;
-            
+
             // Update UI
             document.querySelectorAll('.chip').forEach(chip => {
                 chip.classList.remove('active');
             });
             element.classList.add('active');
-            
+
             // Apply filter
             document.querySelectorAll('.day-card').forEach(card => {
                 const id = parseInt(card.dataset.id);
                 const dayData = trackerData.find(d => d.id === id);
-                
+
                 if (dayData) {
                     let show = true;
-                    
+
                     if (filter === 'aman' && dayData.reaksi !== 'aman') show = false;
                     if (filter === 'reaksi' && dayData.reaksi === 'aman') show = false;
                     if (filter === 'foto' && !dayData.photo) show = false;
-                    
+
                     card.style.display = show ? 'block' : 'none';
                 }
             });
@@ -2016,38 +2742,40 @@
 
         function filterData() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            
+
             document.querySelectorAll('.day-card').forEach(card => {
                 const id = parseInt(card.dataset.id);
                 const dayData = trackerData.find(d => d.id === id);
-                
+
                 if (dayData) {
-                    const matchesSearch = !searchTerm || 
+                    const matchesSearch = !searchTerm ||
                         dayData.date.toLowerCase().includes(searchTerm) ||
                         dayData.products.toLowerCase().includes(searchTerm) ||
                         dayData.pagi.toLowerCase().includes(searchTerm) ||
                         dayData.malam.toLowerCase().includes(searchTerm) ||
                         dayData.area.toLowerCase().includes(searchTerm);
-                    
+
                     card.style.display = matchesSearch ? 'block' : 'none';
                 }
             });
         }
 
-        // Summary
+        // ================================
+        // SUMMARY - UBAH LOGIKA DI SINI
+        // ================================
         function updateSummary() {
             const safeDays = trackerData.filter(d => d.reaksi === 'aman').length;
             const reactDays = trackerData.filter(d => d.reaksi !== 'aman').length;
             const filledDays = trackerData.filter(d => d.pagi || d.malam).length;
             const currentDay = Math.floor((new Date() - CONFIG.startDate) / (1000 * 60 * 60 * 24)) + 1;
             const activeProducts = Math.min(Math.floor(currentDay / 7) + 1, 4);
-            
+
             // Update quick stats
             const progress = Math.round((filledDays / CONFIG.daysTotal) * 100);
             document.getElementById('quick-progress').textContent = progress + '%';
             document.getElementById('quick-safe').textContent = safeDays;
             document.getElementById('quick-react').textContent = reactDays;
-            
+
             // Calculate streak
             let streak = 0;
             for (let i = trackerData.length - 1; i >= 0; i--) {
@@ -2058,22 +2786,22 @@
                 }
             }
             document.getElementById('quick-streak').textContent = streak;
-            
+
             // Update detailed stats
             document.getElementById('safeDays').textContent = safeDays;
             document.getElementById('reactDays').textContent = reactDays;
             document.getElementById('activeProducts').textContent = activeProducts;
-            
+
             // Update percentage changes
             const safePercentage = Math.round((safeDays / CONFIG.daysTotal) * 100);
             const reactPercentage = Math.round((reactDays / CONFIG.daysTotal) * 100);
-            
+
             document.getElementById('safeChange').innerHTML = `
                 <i class="fas fa-arrow-${safePercentage >= 70 ? 'up' : 'down'}"></i>
                 <span>${safePercentage}%</span>
             `;
             document.getElementById('safeChange').className = `stat-change ${safePercentage >= 70 ? 'positive' : 'negative'}`;
-            
+
             document.getElementById('reactChange').innerHTML = `
                 <i class="fas fa-arrow-${reactPercentage <= 20 ? 'down' : 'up'}"></i>
                 <span>${reactPercentage}%</span>
@@ -2081,19 +2809,21 @@
             document.getElementById('reactChange').className = `stat-change ${reactPercentage <= 20 ? 'positive' : 'negative'}`;
         }
 
-        // AI Analysis
+        // ================================
+        // AI ANALYSIS - UBAH KRITERIA DI SINI
+        // ================================
         function updateAIAnalysis() {
             const safeDays = trackerData.filter(d => d.reaksi === 'aman').length;
             const breakoutDays = trackerData.filter(d => d.reaksi === 'breakout').length;
             const iritasiDays = trackerData.filter(d => d.reaksi === 'iritasi').length;
             const filledDays = trackerData.filter(d => d.pagi || d.malam).length;
-            
+
             let analysis = '📊 Analisis AI sedang berjalan...';
             let confidence = 0;
-            
+
             if (filledDays >= 7) {
                 confidence = Math.min(95, 50 + (filledDays * 2));
-                
+
                 if (breakoutDays > 3) {
                     analysis = `⚠️ **BREAKOUT DETECTED** (${breakoutDays} hari)\n\nRekomendasi: Segera hentikan produk terakhir yang ditambahkan. Kulit Anda sedang sensitif.\n\nConfidence: ${confidence}%`;
                 } else if (iritasiDays > 2) {
@@ -2108,17 +2838,20 @@
             } else {
                 analysis = `📊 **DATA BELUM CUKUP**\n\nButuh minimal 7 hari data untuk analisis yang akurat. Saat ini: ${filledDays} hari.\n\nConfidence: ${Math.round(filledDays * 7)}%`;
             }
-            
+
             document.getElementById('aiAnalysis').innerHTML = analysis.replace(/\n/g, '<br>');
         }
 
+        // ================================
+        // RECOMMENDATIONS - UBAH REKOMENDASI DI SINI
+        // ================================
         function updateRecommendations() {
             const recommendations = [];
             const safeDays = trackerData.filter(d => d.reaksi === 'aman').length;
             const breakoutDays = trackerData.filter(d => d.reaksi === 'breakout').length;
             const iritasiDays = trackerData.filter(d => d.reaksi === 'iritasi').length;
             const filledDays = trackerData.filter(d => d.pagi || d.malam).length;
-            
+
             if (breakoutDays > 3) {
                 recommendations.push({
                     icon: '🛑',
@@ -2126,7 +2859,7 @@
                     priority: 'high'
                 });
             }
-            
+
             if (iritasiDays > 2) {
                 recommendations.push({
                     icon: '💧',
@@ -2134,7 +2867,7 @@
                     priority: 'high'
                 });
             }
-            
+
             if (safeDays / filledDays > 0.8) {
                 recommendations.push({
                     icon: '✨',
@@ -2142,7 +2875,7 @@
                     priority: 'low'
                 });
             }
-            
+
             if (filledDays < 7) {
                 recommendations.push({
                     icon: '📝',
@@ -2150,7 +2883,7 @@
                     priority: 'medium'
                 });
             }
-            
+
             const container = document.getElementById('recommendations');
             container.innerHTML = recommendations.map(rec => `
                 <div class="quick-action" style="justify-content: flex-start; padding: 12px;">
@@ -2169,7 +2902,9 @@
             }, 1000);
         }
 
-        // Chart
+        // ================================
+        // CHART - UBAH KONFIGURASI CHART DI SINI
+        // ================================
         function initializeChart() {
             const ctx = document.getElementById('trendChart').getContext('2d');
             chart = new Chart(ctx, {
@@ -2196,7 +2931,7 @@
                             max: 4,
                             ticks: {
                                 stepSize: 1,
-                                callback: function(value) {
+                                callback: function (value) {
                                     const labels = ['Excellent', 'Good', 'Fair', 'Poor', 'Bad'];
                                     return labels[value] || '';
                                 }
@@ -2209,7 +2944,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     const labels = ['Excellent ✅', 'Good 👍', 'Fair ⚠️', 'Poor ❌', 'Bad 🔴'];
                                     return labels[context.parsed.y] || '';
                                 }
@@ -2238,7 +2973,9 @@
             }
         }
 
-        // Timeline
+        // ================================
+        // TIMELINE - UBAH TAMPILAN DI SINI
+        // ================================
         function renderTimeline() {
             const timelineGrid = document.getElementById('timelineGrid');
             timelineGrid.innerHTML = '';
@@ -2254,20 +2991,88 @@
             });
         }
 
-        // Schedule progress
+        // ================================
+        // SCHEDULE PROGRESS - UBAH LOGIKA DI SINI
+        // ================================
+        // GANTI FUNGSI updateScheduleProgress YANG LAMA DENGAN INI
         function updateScheduleProgress() {
-            const currentDay = Math.floor((new Date() - CONFIG.startDate) / (1000 * 60 * 60 * 24)) + 1;
-            const progressBars = document.querySelectorAll('.progress-fill');
-            
-            progressBars.forEach((bar, index) => {
-                const phaseStart = index * 7 + 1;
-                const phaseEnd = (index + 1) * 7;
-                const phaseProgress = Math.max(0, Math.min(100, ((currentDay - phaseStart + 1) / 7) * 100));
-                bar.style.width = phaseProgress + '%';
+            // Loop through each phase
+            CONFIG.phases.forEach((phase) => {
+                const phaseId = phase.id;
+                const detailsElement = document.getElementById(`phase-${phaseId}`);
+                const scheduleItem = detailsElement?.querySelector('.schedule-item');
+                const progressFill = detailsElement?.querySelector(`.phase-${phaseId}-progress`);
+                const statusText = detailsElement?.querySelector(`.phase-${phaseId}-status`);
+
+                if (!detailsElement || !progressFill || !statusText) return;
+
+                // Calculate progress
+                let progress = 0;
+                let status = '';
+                let isActive = false;
+
+                if (currentDay > phase.days[1]) {
+                    // Phase sudah selesai
+                    progress = 100;
+                    status = '✅ Selesai';
+                    detailsElement.classList.remove('active-phase');
+                    if (scheduleItem) scheduleItem.classList.remove('active-phase');
+                } else if (currentDay >= phase.days[0] && currentDay <= phase.days[1]) {
+                    // Phase sedang aktif
+                    const phaseDays = phase.days[1] - phase.days[0] + 1;
+                    const dayInPhase = currentDay - phase.days[0] + 1;
+                    progress = (dayInPhase / phaseDays) * 100;
+                    status = `📊 ${Math.round(progress)}% (Hari ${dayInPhase}/${phaseDays})`;
+                    isActive = true;
+
+                    // Tambahkan class active-phase
+                    detailsElement.classList.add('active-phase');
+                    if (scheduleItem) scheduleItem.classList.add('active-phase');
+
+                    // AUTO-OPEN details yang aktif
+                    detailsElement.open = true;
+                } else {
+                    // Phase belum dimulai
+                    status = '⏳ Belum dimulai';
+                    detailsElement.classList.remove('active-phase');
+                    if (scheduleItem) scheduleItem.classList.remove('active-phase');
+
+                    // AUTO-CLOSE details yang belum aktif
+                    detailsElement.open = false;
+                }
+
+                // Update UI
+                progressFill.style.width = progress + '%';
+                statusText.textContent = status;
+            });
+
+            // Close info details by default
+            const infoDetails = document.getElementById('phase-info');
+            if (infoDetails && !infoDetails.hasAttribute('data-user-opened')) {
+                infoDetails.open = false;
+            }
+        }
+
+        // TAMBAHKAN FUNGSI INI
+        function initializeDetailsTracking() {
+            // Track user manual open/close
+            document.querySelectorAll('details').forEach(detail => {
+                detail.addEventListener('toggle', function () {
+                    if (this.id === 'phase-info') {
+                        // Mark info as user-opened so it won't auto-close
+                        if (this.open) {
+                            this.setAttribute('data-user-opened', 'true');
+                        } else {
+                            this.removeAttribute('data-user-opened');
+                        }
+                    }
+                });
             });
         }
 
-        // Storage functions
+        // ================================
+        // STORAGE FUNCTIONS - UBAH KEY DI CONFIG
+        // ================================
         function saveData() {
             localStorage.setItem(CONFIG.storageKey, JSON.stringify(trackerData));
             showToast('Data berhasil disimpan! 🎉', 'success');
@@ -2306,11 +3111,11 @@
             const input = document.createElement('input');
             input.type = 'file';
             input.accept = '.json';
-            input.onchange = function(e) {
+            input.onchange = function (e) {
                 const file = e.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         try {
                             const imported = JSON.parse(e.target.result);
                             trackerData = imported;
@@ -2333,7 +3138,9 @@
             }
         }
 
-        // Utility functions
+        // ================================
+        // UTILITY FUNCTIONS - UBAH DI SINI
+        // ================================
         function convertToCSV(data) {
             const headers = ['Tanggal', 'Hari', 'Produk', 'Pagi', 'Malam', 'Reaksi', 'Area', 'Foto'];
             const rows = data.map(d => [
@@ -2346,11 +3153,11 @@
                 d.area,
                 d.photo ? 'Has photo' : ''
             ]);
-            
+
             const csvContent = [headers, ...rows]
                 .map(row => row.map(cell => `"${cell}"`).join(','))
                 .join('\n');
-            
+
             return csvContent;
         }
 
@@ -2364,13 +3171,15 @@
             URL.revokeObjectURL(url);
         }
 
-        // Toast notifications
+        // ================================
+        // TOAST NOTIFICATIONS - UBAH PESAN DI SINI
+        // ================================
         function showToast(message, type = 'info') {
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
             toast.textContent = message;
             document.body.appendChild(toast);
-            
+
             setTimeout(() => {
                 toast.style.opacity = '0';
                 setTimeout(() => {
@@ -2379,7 +3188,9 @@
             }, 3000);
         }
 
-        // Modal functions
+        // ================================
+        // MODAL FUNCTIONS - UBAH DI SINI
+        // ================================
         function showModal(title, content) {
             const modal = document.getElementById('quickAddModal');
             const modalContent = modal.querySelector('.modal-content');
@@ -2397,7 +3208,7 @@
         function showQuickAdd() {
             const modal = document.getElementById('quickAddModal');
             modal.classList.add('active');
-            
+
             // Set today's date as default
             const today = new Date();
             document.getElementById('quickAddDate').value = today.toISOString().split('T')[0];
@@ -2414,12 +3225,12 @@
         function saveQuickAdd() {
             const date = document.getElementById('quickAddDate').value;
             const note = document.getElementById('quickNote').value;
-            
+
             const dayData = trackerData.find(d => d.date === formatDate(new Date(date)));
             if (dayData) {
                 dayData.reaksi = quickReaction;
                 dayData.note = note;
-                
+
                 // Refresh UI
                 loadData();
                 closeModal();
@@ -2429,7 +3240,9 @@
             }
         }
 
-        // Schedule functions
+        // ================================
+        // SCHEDULE FUNCTIONS - UBAH DI SINI
+        // ================================
         function toggleSchedule(element) {
             const content = element.nextElementSibling;
             if (content.style.display === 'none') {
@@ -2443,12 +3256,16 @@
             showToast('Schedule expanded view coming soon! 📅', 'info');
         }
 
-        // Timeline functions
+        // ================================
+        // TIMELINE FUNCTIONS - UBAH DI SINI
+        // ================================
         function toggleTimelineView() {
             showToast('Timeline view options coming soon! 🖼️', 'info');
         }
 
-        // Reminders
+        // ================================
+        // REMINDERS - UBAH LOGIKA DI SINI
+        // ================================
         function requestNotificationPermission() {
             if ('Notification' in window && Notification.permission === 'default') {
                 Notification.requestPermission();
@@ -2458,7 +3275,7 @@
         function setReminder(waktu) {
             const timeInput = waktu === 'pagi' ? document.getElementById('morningTime') : document.getElementById('eveningTime');
             const time = timeInput.value;
-            
+
             if (!time) {
                 showToast('Pilih waktu terlebih dahulu', 'warning');
                 return;
@@ -2471,15 +3288,15 @@
             const reminders = JSON.parse(localStorage.getItem(CONFIG.remindersKey) || '{}');
             reminders[waktu] = time;
             localStorage.setItem(CONFIG.remindersKey, JSON.stringify(reminders));
-            
+
             showToast(`${label} reminder set for ${time} ⏰`, 'success');
             updateActiveReminders();
-            
+
             // Check every minute
             setInterval(() => {
                 const now = new Date();
                 const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-                
+
                 if (currentTime === time) {
                     showNotification(label, 'Time for your skincare routine! ✨');
                 }
@@ -2496,12 +3313,12 @@
 
         function initializeReminders() {
             const reminders = JSON.parse(localStorage.getItem(CONFIG.remindersKey) || '{}');
-            
+
             // Set up interval checks
             setInterval(() => {
                 const now = new Date();
                 const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-                
+
                 Object.entries(reminders).forEach(([waktu, time]) => {
                     if (currentTime === time) {
                         const label = waktu === 'pagi' ? 'Morning Skincare' : 'Evening Skincare';
@@ -2514,7 +3331,7 @@
         function updateActiveReminders() {
             const reminders = JSON.parse(localStorage.getItem(CONFIG.remindersKey) || '{}');
             const container = document.getElementById('activeReminders');
-            
+
             if (Object.keys(reminders).length === 0) {
                 container.innerHTML = '<p style="color: var(--text-tertiary);">No active reminders</p>';
             } else {
@@ -2550,38 +3367,69 @@
             }
         }
 
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
+        // ================================
+        // KEYBOARD SHORTCUTS - UBAH DI SINI
+        // ================================
+        document.addEventListener('keydown', function (e) {
             // Ctrl/Cmd + S to save
             if ((e.ctrlKey || e.metaKey) && e.key === 's') {
                 e.preventDefault();
                 saveData();
             }
-            
+
             // Ctrl/Cmd + F to focus search
             if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
                 e.preventDefault();
                 document.getElementById('searchInput').focus();
             }
-            
+
             // Escape to close modal
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
 
-        // Auto-save every 30 seconds
+        // ================================
+        // AUTO-SAVE - UBAH INTERVAL DI SINI
+        // ================================
         setInterval(() => {
             saveData();
-        }, 30000);
+        }, 30000); // Auto-save setiap 30 detik
 
         // Check for temp photo on load
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const tempPhoto = localStorage.getItem('tempPhoto');
             if (tempPhoto) {
                 showToast('Photo ready! Tap on a day card to add it.', 'info');
             }
         });
+
+        // TAMBAHKAN DI PALING BAWAH, SEBELUM SCRIPT TUTUP
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function (e) {
+            // Press 'T' to scroll to today
+            if (e.key === 't' || e.key === 'T') {
+                if (!e.target.matches('input, textarea, [contenteditable="true"]')) {
+                    scrollToToday();
+                }
+            }
+
+            // Press 'D' to toggle dark mode
+            if (e.key === 'd' || e.key === 'D') {
+                if (!e.target.matches('input, textarea, [contenteditable="true"]')) {
+                    toggleTheme();
+                }
+            }
+        });
+
+        // Auto-update every minute
+        setInterval(() => {
+            calculateCurrentDay();
+            updateTodayBanner();
+            updateScheduleProgress();
+        }, 60000); // 60000 ms = 1 menit
     </script>
 </body>
+
 </html>

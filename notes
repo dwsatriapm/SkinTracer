@@ -1,0 +1,10 @@
+💡 TIPS:
+Kalau mau semua tahap yang sudah selesai tetap terbuka, ubah bagian ini di fungsi updateScheduleProgress():
+javascriptif (currentDay > phase.days[1]) {
+    progress = 100;
+    status = '✅ Selesai';
+    detailsElement.classList.remove('active-phase');
+    if (scheduleItem) scheduleItem.classList.remove('active-phase');
+    // TAMBAHKAN BARIS INI kalau mau tahap selesai tetap terbuka
+    detailsElement.open = true;
+}
